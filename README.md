@@ -9,12 +9,10 @@ Special Thanks to Smallegreen for the humongous support
 ## Introduction
 A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care for the consequences. With an arsenal of deadly weapons, she unleashes the loudest blasts and brightest explosions to leave a trail of mayhem and panic in her wake. Jinx despises boredom and gleefully brings her own chaotic brand of pandemonium wherever she goes.
 
-## Latest Patch Notes `1.0.8`
+## Latest Patch Notes `1.0.9`
 `Bug reports can be posted in discord` https://discord.gg/aYuS9Wsxxx  
 
-* Pow-Pow is now client authoritative 
-* Fish Bones is now client authoritative
-* Get Excited! Adjustments
+* Fixed an issue where fishbones rocket visual was not homing into targets in multiplayer games.
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">
@@ -50,6 +48,7 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 ## Credits
 * All the homies at the Risk of Rain 2 Modding Discord except dotflare
 * Bubbet for helping me with everything i keep fuckin up LMAO
+* Neon Sky for helping figuring out homing issue on multiplayer
 * All the Kofi Supporters
 * League of Legends
 
@@ -60,6 +59,11 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 ---
 
 ## Old Patch Notes
+`1.0.8`
+* Pow-Pow is now client authoritative 
+* Fish Bones is now client authoritative
+* Get Excited! Adjustments
+
 `1.0.7`
 * Fish Bones will now be affected by Pocket I.C.B.M
 * Super Mega Death Rocket! damage is now affected by Pocket I.C.B.M 

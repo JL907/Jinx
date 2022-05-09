@@ -18,6 +18,15 @@ namespace JinxMod.Controller
 			this.targetComponent = base.GetComponent<ProjectileTargetComponent>();
 		}
 
+		private void Awake()
+        {
+			if (!NetworkServer.active)
+			{
+				enabled = false;
+				return;
+			}
+		}
+
 		private void FixedUpdate()
 		{
 			this.timer += Time.fixedDeltaTime;

@@ -67,8 +67,6 @@ namespace JinxMod.Modules.Survivors
         {
             base.InitializeCharacter();
             bodyPrefab.AddComponent<RocketController>();
-            //bodyPrefab.AddComponent<RevdUpController>();
-            //bodyPrefab.AddComponent<GetExcitedController>();
             displayPrefab.AddComponent<MenuController>();
             CharacterDeathBehavior characterDeathBehavior = bodyPrefab.GetComponent<CharacterDeathBehavior>();
             characterDeathBehavior.deathState = new SerializableEntityStateType(typeof(JinxMod.SkillStates.BaseStates.DeathState));

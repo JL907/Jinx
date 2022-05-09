@@ -25,8 +25,6 @@ namespace JinxMod.SkillStates
         private float fireTime;
         private bool hasFired;
         private string muzzleString;
-
-        private RevdUpController revdUpController;
         public Animator animator { get; private set; }
 
         private float bulletStopWatch;
@@ -43,7 +41,6 @@ namespace JinxMod.SkillStates
             base.StartAimMode(duration, false);
             this.muzzleString = "PowPowMuzzle";
             this.animator = base.GetModelAnimator();
-            //this.revdUpController = base.GetComponent<RevdUpController>();
 
             if (this.animator.GetBool("isMoving") || (!(this.animator.GetBool("isGrounded"))))
             {
@@ -66,18 +63,6 @@ namespace JinxMod.SkillStates
             base.OnExit();
         }
 
-        private void AddBuff()
-        {
-            this.hasBuff = true;
-            this.revdUpController.ResetStopWatch();
-            if (base.characterBody.GetBuffCount(Modules.Buffs.revdUp) < 3)
-            {
-                if (NetworkServer.active)
-                {
-                    base.characterBody.AddBuff(Modules.Buffs.revdUp);
-                }
-            }
-        }
         private void Fire()
         {
             base.characterBody.AddSpreadBloom(1.5f);

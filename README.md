@@ -1,8 +1,16 @@
 # Jinx
 ### JinxMod was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.
 
-Special Thanks to Dyzcroll for creating custom jump animation for Jinx.  
-Special Thanks to Smallegreen for the humongous support
+<p align="center">
+My league Mods
+</p>
+
+<p align="center">
+  <a href="https://thunderstore.io/package/lemonlust/SettMod/"><img width="128" height="128" src="https://user-images.githubusercontent.com/7343912/167464106-0d8f197a-8f71-4446-8853-57dddc300b5b.png"></a>
+  <a href="https://thunderstore.io/package/lemonlust/KatarinaMod/"><img width="128" height="128" src="https://user-images.githubusercontent.com/7343912/167464178-cdc05ba4-1a93-434b-8ef6-3cfb7de6c1f5.png"></a>
+  <a href="https://thunderstore.io/package/lemonlust/JinxMod/"><img width="128" height="128" src="https://user-images.githubusercontent.com/7343912/167464222-08ee52e6-bf9e-4117-9bd8-70636d63b03b.png"></a>
+</p>
+
 ![image](https://user-images.githubusercontent.com/7343912/165629624-41dadf32-abf3-4a45-949b-ee3c3f0082d5.png)
 ![image](https://user-images.githubusercontent.com/7343912/165630033-8498e398-b0ea-4ab3-bd26-32aa8c9eaca8.png)
 
@@ -51,6 +59,8 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 * Neon Sky for helping figuring out homing issue on multiplayer
 * All the Kofi Supporters
 * League of Legends
+* Special Thanks to Dyzcroll for creating custom jump animation for Jinx.  
+* Special Thanks to Smallegreen for the humongous support
 
 ## Future Plans
 * Better Networking for multiplayer play.

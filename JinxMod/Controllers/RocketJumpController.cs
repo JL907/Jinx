@@ -70,11 +70,6 @@ namespace JinxMod.Controllers
         }
         private void OnImpact(ProjectileImpactInfo projectileImpactInfo)
         {
-            if (this.owner.characterBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.IgnoreFallDamage))
-            {
-                return;
-            }
-
             if (projectileImpactInfo.collider.transform.gameObject.layer != LayerIndex.world.intVal)
             {
                 return;
@@ -88,6 +83,7 @@ namespace JinxMod.Controllers
                 if (this.owner.characterBody == characterBody && characterBody && characterBody?.bodyIndex == BodyCatalog.FindBodyIndex("JinxBody"))
                 {
                     this.owner.characterMotor.onHitGroundServer += CharacterMotor_onHitGroundServer;
+                    this.owner.characterMotor.Motor.ForceUnground();
                     this.owner.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
                     AddExplosionForce(characterBody, explosionForce, projectileImpactInfo.estimatedPointOfImpact, explosionRadius, 0f);
                 }

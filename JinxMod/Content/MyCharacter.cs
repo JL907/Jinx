@@ -65,6 +65,7 @@ namespace JinxMod.Modules.Survivors
 
         public override void InitializeCharacter()
         {
+            if (!Modules.Config.enableCharacter.Value) return;
             base.InitializeCharacter();
             bodyPrefab.AddComponent<RocketController>();
             displayPrefab.AddComponent<MenuController>();

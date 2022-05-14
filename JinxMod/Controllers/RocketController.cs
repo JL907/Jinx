@@ -26,7 +26,7 @@ namespace JinxMod.Controller
             if (attacks > random)
             {
                 attacks = 0;
-                Util.PlaySound("Play_JinxAttackVO", base.gameObject);
+                if (Modules.Config.voiceLines.Value) Util.PlaySound("Play_JinxAttackVO", base.gameObject);
                 random = UnityEngine.Random.Range(15 * this.body.attackSpeed, 30 * this.body.attackSpeed);
             }
         }

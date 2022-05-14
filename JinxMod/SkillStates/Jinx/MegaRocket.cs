@@ -35,7 +35,7 @@ namespace JinxMod.SkillStates
             }
             base.PlayAnimation("FullBody, Override", "megarocket");
             Util.PlaySound("Play_JinxMegaRocketShootInitial", base.gameObject);
-            Util.PlaySound("Play_JinxMegaRocketVO", base.gameObject);
+            if (Modules.Config.voiceLines.Value) Util.PlaySound("Play_JinxMegaRocketVO", base.gameObject);
         }
 
         public override void OnExit()

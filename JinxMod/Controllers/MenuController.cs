@@ -24,7 +24,7 @@ namespace JinxMod.Controller
 
         private void PlayEffect()
         {
-            this.playID = Util.PlaySound("Play_JinxTauntVO", base.gameObject);
+            if (Modules.Config.voiceLines.Value) this.playID = Util.PlaySound("Play_JinxTauntVO", base.gameObject);
             this.playID2 = Util.PlaySound("Play_JinxMenuSFX", base.gameObject);
         }
     }

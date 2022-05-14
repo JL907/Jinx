@@ -50,7 +50,7 @@ namespace JinxMod.SkillStates
             {
                 this.hasFired = true;
                 Util.PlaySound("Play_JinxZapShoot", base.gameObject);
-                Util.PlaySound("Play_JinxZapVO", base.gameObject);
+                if (Modules.Config.voiceLines.Value) Util.PlaySound("Play_JinxZapVO", base.gameObject);
 
                 if (base.isAuthority)
                 {

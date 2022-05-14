@@ -1,13 +1,17 @@
 ﻿using BepInEx.Configuration;
+using System;
 using UnityEngine;
 
 namespace JinxMod.Modules
 {
     public static class Config
     {
+        public static ConfigEntry<bool> voiceLines;
+        public static ConfigEntry<bool> enableCharacter;
         public static void ReadConfig()
         {
-
+            enableCharacter = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Enable Character"), true, new ConfigDescription("Enable Voice Lines", null, Array.Empty<object>()));
+            voiceLines = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Voice Lines"), true, new ConfigDescription("Enable Voice Lines", null, Array.Empty<object>()));
         }
 
         // this helper automatically makes config entries for disabling survivors

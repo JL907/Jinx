@@ -1,7 +1,7 @@
 {
     "name": "JinxMod",
     "version_number": "1.0.9",
-    "website_url": "",
+    "website_url": "https://github.com/JL907/Jinx",
     "description": "Jinx? Stands for Jinx! Durr.",
     "dependencies": [
         "bbepis-BepInExPack-5.4.1905",

@@ -363,6 +363,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JinxDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 6136972434376208350, guid: ba37884397befdc40b8598199d76bba3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba37884397befdc40b8598199d76bba3, type: 3}
 --- !u!1 &1513977440
@@ -665,7 +670,7 @@ PrefabInstance:
     - target: {fileID: 4908219203080072812, guid: a0ed2df67213be54d98b3d240db7f857,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0ed2df67213be54d98b3d240db7f857, type: 3}

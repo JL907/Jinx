@@ -17,10 +17,10 @@
 ## Introduction
 A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care for the consequences. With an arsenal of deadly weapons, she unleashes the loudest blasts and brightest explosions to leave a trail of mayhem and panic in her wake. Jinx despises boredom and gleefully brings her own chaotic brand of pandemonium wherever she goes.
 
-## Latest Patch Notes `1.0.11`
+## Latest Patch Notes `1.1.0`
 `Bug reports can be posted in discord` https://discord.gg/aYuS9Wsxxx  
 
-* Added Dynamic Bones on Jinx's hair.
+* R2API Conversion
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">
@@ -69,6 +69,9 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 ---
 
 ## Old Patch Notes
+`1.0.11`
+* Added Dynamic Bones on Jinx's hair.
+
 `1.0.10`
 * Voicelines can now be disabled in configuration because people complained
 

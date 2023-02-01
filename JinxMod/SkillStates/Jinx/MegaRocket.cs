@@ -35,10 +35,11 @@ namespace JinxMod.SkillStates
             }
             base.PlayAnimation("FullBody, Override", "megarocket");
             Util.PlaySound("Play_JinxMegaRocketShootInitial", base.gameObject);
+            Vector3 effectPosition = base.characterBody.corePosition + Vector3.up * 1f;
             EffectManager.SpawnEffect(Modules.Assets.chargeEffect, new EffectData
             {
-                origin = base.characterBody.corePosition,
-                scale = 1f
+                origin = effectPosition,
+                scale = 1f,
             }, false) ;
             if (Modules.Config.voiceLines.Value) Util.PlaySound("Play_JinxMegaRocketVO", base.gameObject);
         }

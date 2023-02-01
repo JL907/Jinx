@@ -24,6 +24,7 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 * PowPow Bullet visual tracers adjusted slightly
 * Fish Bones explosion no longer causes the screen to shake
 * Super Mega Death Rocket! explosion will now cause the screen to shake
+* Adjusted Fish Bones homing characteristics slightly
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">

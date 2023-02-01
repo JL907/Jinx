@@ -19,12 +19,15 @@ namespace JinxMod.Modules
 
         internal static GameObject megaExplosionEffect;
 
+        internal static GameObject chargeEffect;
+
         // particle effects
 
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
 
         internal static NetworkSoundEventDef explosionHitSoundEvent;
+
         internal static NetworkSoundEventDef bulletHitSoundEvent;
 
 
@@ -93,6 +96,8 @@ namespace JinxMod.Modules
             megaExplosionEffect = LoadEffect("BazookaExplosionEffect Variant", "Play_JinxMegaRocketImpact");
 
             explosionHitSoundEvent = CreateNetworkSoundEventDef("Play_JinxFishBonesImpact");
+
+            chargeEffect = LoadEffect("Charge");
 
             bulletHitSoundEvent = CreateNetworkSoundEventDef("Play_JinxPowPowImpact");
 

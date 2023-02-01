@@ -77,10 +77,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6655846021204313705, guid: ca45963d10dfb504ba6d071fd17b8e91,
+        type: 3}
+      propertyPath: m_Name
+      value: BazookaExplosionEffect Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 6990291738082330623, guid: ca45963d10dfb504ba6d071fd17b8e91,
         type: 3}
       propertyPath: m_Name
       value: BazookaExplosionEffect Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224058199147714879, guid: ca45963d10dfb504ba6d071fd17b8e91,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224058199147714879, guid: ca45963d10dfb504ba6d071fd17b8e91,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224058199147714879, guid: ca45963d10dfb504ba6d071fd17b8e91,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca45963d10dfb504ba6d071fd17b8e91, type: 3}

@@ -39,6 +39,7 @@ namespace JinxMod.SkillStates
             EffectManager.SpawnEffect(Modules.Assets.chargeEffect, new EffectData
             {
                 origin = effectPosition,
+                rotation = Util.QuaternionSafeLookRotation(base.GetAimRay().direction),
                 scale = 1f,
             }, false) ;
             if (Modules.Config.voiceLines.Value) Util.PlaySound("Play_JinxMegaRocketVO", base.gameObject);

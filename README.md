@@ -17,10 +17,13 @@
 ## Introduction
 A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care for the consequences. With an arsenal of deadly weapons, she unleashes the loudest blasts and brightest explosions to leave a trail of mayhem and panic in her wake. Jinx despises boredom and gleefully brings her own chaotic brand of pandemonium wherever she goes.
 
-## Latest Patch Notes `1.1.0`
+## Latest Patch Notes `1.2.0`
 `Bug reports can be posted in discord` https://discord.gg/aYuS9Wsxxx  
 
-* R2API Conversion
+* New Jinx VFX Created by Violet King of WeeWISE/Emotes @ Violet Chaolan#4695
+* PowPow Bullet visual tracers adjusted slightly
+* Fish Bones explosion no longer causes the screen to shake
+* Super Mega Death Rocket! explosion will now cause the screen to shake
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">
@@ -54,6 +57,7 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 ![image](https://user-images.githubusercontent.com/7343912/166158342-6a3a66b8-d6be-4f3d-8b21-d3bcd32e0ded.png)
 
 ## Credits
+* Violet King of WeeWISE/Emotes @ Violet Chaolan#4695 for creating the new VFX for jinx's explosions
 * All the homies at the Risk of Rain 2 Modding Discord except dotflare
 * Bubbet for helping me with everything i keep fuckin up LMAO
 * Neon Sky for helping figuring out homing issue on multiplayer
@@ -69,6 +73,9 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 ---
 
 ## Old Patch Notes
+`1.1.0`
+* R2API Conversion
+
 `1.0.11`
 * Added Dynamic Bones on Jinx's hair.
 

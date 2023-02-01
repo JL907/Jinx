@@ -137,10 +137,6 @@ namespace JinxMod.Modules
             var Flare = ghostPrefab.GetComponentInChildren<Transform>().Find("Flare");
             Flare.transform.localScale *= 7.5f;
 
-            var PointLight = ghostPrefab.GetComponentInChildren<Transform>().Find("Point Light");
-            Light light = PointLight.GetComponent<Light>();
-            light.color = new Color(0.0f, 0.0f, 0.81f, 1f);
-
             projectileController.ghostPrefab = ghostPrefab;
 
             LoopSoundDef loopSoundDef = ScriptableObject.CreateInstance<LoopSoundDef>();

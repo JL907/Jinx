@@ -38,7 +38,7 @@ namespace JinxMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.Lemonlust.JinxMod";
         public const string MODNAME = "JinxMod";
-        public const string MODVERSION = "1.1.0";
+        public const string MODVERSION = "1.2.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "Lemonlust";

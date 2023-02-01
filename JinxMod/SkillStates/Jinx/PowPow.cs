@@ -19,7 +19,7 @@ namespace JinxMod.SkillStates
         public static float force = 400f;
         public static float recoil = 0.5f;
         public static float range = 256f;
-        public static GameObject tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerGoldGat");
+        public static GameObject tracerEffectPrefab = Modules.Assets.powPowTracer;
 
         private float duration;
         private float fireTime;

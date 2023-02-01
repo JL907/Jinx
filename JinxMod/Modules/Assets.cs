@@ -19,6 +19,8 @@ namespace JinxMod.Modules
 
         internal static GameObject megaExplosionEffect;
 
+        internal static GameObject powPowTracer;
+
         internal static GameObject chargeEffect;
 
         // particle effects
@@ -91,7 +93,7 @@ namespace JinxMod.Modules
                 return;
             }
 
-            bombExplosionEffect = LoadEffect("BazookaExplosionEffect", "Play_JinxFishBonesImpact");
+            bombExplosionEffect = LoadEffect("Jinx Normal rockets", "Play_JinxFishBonesImpact");
 
             megaExplosionEffect = LoadEffect("BazookaExplosionEffect Variant", "Play_JinxMegaRocketImpact");
 
@@ -99,11 +101,19 @@ namespace JinxMod.Modules
 
             chargeEffect = LoadEffect("Charge");
 
+            powPowTracer = CreateTracer("TracerGoldGat", "PowPowTracer");
+
+            if (powPowTracer)
+            {
+                powPowTracer.GetComponent<Tracer>().speed = 600f;
+                powPowTracer.GetComponent<Tracer>().length = 75f;
+            }
+
             bulletHitSoundEvent = CreateNetworkSoundEventDef("Play_JinxPowPowImpact");
 
-            if (bombExplosionEffect)
+            if (megaExplosionEffect)
             {
-                ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
+                ShakeEmitter shakeEmitter = megaExplosionEffect.AddComponent<ShakeEmitter>();
                 shakeEmitter.amplitudeTimeDecay = true;
                 shakeEmitter.duration = 0.5f;
                 shakeEmitter.radius = 200f;

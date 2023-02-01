@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 304644624
+CRC: 3165661592
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 49d1d41b0602e7298e5139f786f507d1
+    Hash: 6b2645f1ef21bc580618a0f59829cb7f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 38acf72090accc8cc7b07320b5844bb0
+    Hash: 4238facc31331c20bf20af7f4d26475d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -15,7 +15,11 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
 - Class: 28
+  Script: {instanceID: 0}
+- Class: 33
   Script: {instanceID: 0}
 - Class: 43
   Script: {instanceID: 0}
@@ -34,9 +38,9 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: f9ac8d30c6a0d9642a11e5be4c440740, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -71,6 +75,7 @@ Assets:
 - Assets/Jinx/JinxDisplay.prefab
 - Assets/Jinx/CustomAnimations/RocketOverrideController.overrideController
 - Assets/Jinx/Icons/Phase_Rush_rune.png
+- Assets/Jinx/VFX/Explosion.mat
 - Assets/Jinx/Model/RunFastFS.anim
 - Assets/Jinx/VFX/HenryBazookaMuzzleFlash.prefab
 - Assets/Jinx/Icons/Jinx_Passive.png
@@ -87,10 +92,12 @@ Assets:
 - Assets/Jinx/VFX/Materials/matHenrySwing2.mat
 - Assets/Jinx/VFX/Materials/matHitSparkPunch.mat
 - Assets/Jinx/mdlJinx.prefab
+- Assets/Jinx/VFX/Explosion - normal rocket.mat
 - Assets/Jinx/VFX/Materials/matSmoke.mat
 - Assets/Jinx/Icons/Electrocute_rune.png
 - Assets/Jinx/VFX/Textures/texLightning.tif
 - Assets/Jinx/VFX/Materials/matSwingShadow.mat
+- Assets/Jinx/VFX/Charge.prefab
 - Assets/Jinx/Icons/JinxR.png
 - Assets/Jinx/VFX/Textures/texEmbers.png
 - Assets/Jinx/Model/matJinx.mat
@@ -106,6 +113,7 @@ Assets:
 - Assets/Jinx/VFX/Materials/matHitSpark.mat
 - Assets/Jinx/Icons/JinxSquareTex.png
 - Assets/Jinx/VFX/Textures/texSwingEffect.png
+- Assets/Jinx/VFX/In Flight.prefab
 - Assets/Jinx/VFX/BazookaExplosionEffect.prefab
 - Assets/Jinx/Model/skin0.png
 - Assets/Jinx/Icons/Lethal_Tempo_rune.png
@@ -115,6 +123,7 @@ Assets:
 - Assets/Jinx/VFX/Materials/matFistSwing.mat
 - Assets/Jinx/VFX/Textures/texDust.png
 - Assets/Jinx/VFX/Materials/matEmbers.mat
+- Assets/Jinx/VFX/Jinx Normal rockets.prefab
 - Assets/Jinx/VFX/Materials/matPunchImpact.mat
 - Assets/Jinx/VFX/Textures/texRipple.png
 - Assets/Jinx/Icons/JinxQ.png

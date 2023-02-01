@@ -34,9 +34,9 @@ namespace JinxMod.Modules
             GameObject.Destroy(missilePrefab.GetComponent<ProjectileSingleTargetImpact>());
 
             ProjectileSphereTargetFinder projectileSphereTargetFinder = missilePrefab.AddComponent<ProjectileSphereTargetFinder>();
-            projectileSphereTargetFinder.lookRange = 8f;
+            projectileSphereTargetFinder.lookRange = 4f;
             projectileSphereTargetFinder.onlySearchIfNoTarget = true;
-            projectileSphereTargetFinder.allowTargetLoss = false;
+            projectileSphereTargetFinder.allowTargetLoss = true;
             projectileSphereTargetFinder.testLoS = true;
             projectileSphereTargetFinder.targetSearchInterval = 0.1f;
 
@@ -133,8 +133,13 @@ namespace JinxMod.Modules
             trailRenderer.time = 1f;
             trailRenderer.startWidth = 7.5f;
             trailRenderer.endWidth = 7.5f;
+
             var Flare = ghostPrefab.GetComponentInChildren<Transform>().Find("Flare");
             Flare.transform.localScale *= 7.5f;
+
+            var PointLight = ghostPrefab.GetComponentInChildren<Transform>().Find("Point Light");
+            Light light = PointLight.GetComponent<Light>();
+            light.color = new Color(0.0f, 0.0f, 0.81f, 1f);
 
             projectileController.ghostPrefab = ghostPrefab;
 

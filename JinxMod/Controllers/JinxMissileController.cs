@@ -37,7 +37,7 @@ namespace JinxMod.Controller
 					Vector3 vector = this.targetComponent.target.position + UnityEngine.Random.insideUnitSphere * this.turbulence - this.transform.position;
 					if (vector != Vector3.zero)
 					{
-						this.transform.forward = Vector3.RotateTowards(this.transform.forward, vector, 720f * 0.017453292f * Time.fixedDeltaTime, 0f);
+						this.transform.forward = Vector3.RotateTowards(this.transform.forward, vector, 720f * 0.017453292f * (Time.fixedDeltaTime * 2f), 0f);
 					}
 				}
 			}
@@ -47,7 +47,7 @@ namespace JinxMod.Controller
 		public float maxVelocity = 25f;
 		public float rollVelocity = 0f;
 		public float acceleration = 3f;
-		public float delayTimer = 0.3f;
+		public float delayTimer = 0.5f;
 		public float giveupTimer = 8f;
 		public float deathTimer = 10f;
 		private float timer;

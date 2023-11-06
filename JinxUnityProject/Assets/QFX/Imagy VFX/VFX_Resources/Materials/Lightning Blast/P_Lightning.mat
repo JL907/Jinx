@@ -88,14 +88,14 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DissolveEdgeWidth: 0
+    - _DissolveEdgeWidth: 0.777
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InvFade: 10
     - _LinePower: 2.41
-    - _MaskClipValue: 0.5
+    - _MaskClipValue: 0.7
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -117,4 +117,4 @@ Material:
     - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _Speed: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _TintColor: {r: 0, g: 0.1882353, b: 2.9960785, a: 1}
+    - _TintColor: {r: 3.2958221, g: 1.912922, b: 0, a: 1}

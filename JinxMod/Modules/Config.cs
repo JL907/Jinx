@@ -32,9 +32,11 @@ namespace JinxMod.Modules
 
         public static ConfigEntry<float> zapDamageCoefficient;
         public static ConfigEntry<float> zapProcCoefficient;
-
+        public static ConfigEntry<float> zapCD;
         public static ConfigEntry<float> megaRocketDamageCoefficient;
         public static ConfigEntry<float> megaRocketProcCoefficient;
+        public static ConfigEntry<float> megaRocketCD;
+
         public static void ReadConfig()
         {
             enableCharacter = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Enable Character"), true, new ConfigDescription("Enable Character", null, Array.Empty<object>()));
@@ -66,9 +68,11 @@ namespace JinxMod.Modules
 
             zapDamageCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("03 - Zap", "Zap Damage Coefficient"), 10f, new ConfigDescription("", null, Array.Empty<object>()));
             zapProcCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("03 - Zap", "Zap Proc Coefficient"), 1f, new ConfigDescription("", null, Array.Empty<object>()));
+            zapCD = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("03 - Zap", "Zap CD"), 6f, new ConfigDescription("", null, Array.Empty<object>()));
 
             megaRocketDamageCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("04 - Mega Rocket", "Mega Rocket Damage Coefficient"), 13.5f, new ConfigDescription("", null, Array.Empty<object>()));
             megaRocketProcCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("04 - Mega Rocket", "Mega Rocket Proc Coefficient"), 1f, new ConfigDescription("", null, Array.Empty<object>()));
+            megaRocketCD = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("04 - Mega Rocket", "Mega Rocket CD"), 10f, new ConfigDescription("", null, Array.Empty<object>()));
 
 
         }

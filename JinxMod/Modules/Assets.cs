@@ -95,11 +95,11 @@ namespace JinxMod.Modules
 
             bombExplosionEffect = LoadEffect("Jinx Normal rockets", "Play_JinxFishBonesImpact");
 
-            megaExplosionEffect = LoadEffect("BazookaExplosionEffect Variant", "Play_JinxMegaRocketImpact");
+            megaExplosionEffect = LoadEffect("Jinx Normal rockets Variant", "Play_JinxMegaRocketImpact");
 
             explosionHitSoundEvent = CreateNetworkSoundEventDef("Play_JinxFishBonesImpact");
 
-            chargeEffect = LoadEffect("Charge");
+            chargeEffect = LoadEffect("Charge Variant");
 
             powPowTracer = CreateTracer("TracerGoldGat", "PowPowTracer");
 

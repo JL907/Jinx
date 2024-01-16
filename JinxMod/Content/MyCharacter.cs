@@ -32,13 +32,23 @@ namespace JinxMod.Modules.Survivors
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 110f,
-            healthRegen = 1f,
-            armor = 0f,
+            maxHealth = Modules.Config.baseHealth.Value,
+            healthGrowth = Modules.Config.healthGrowth.Value,
 
-            damage = 12f,
+            healthRegen = Modules.Config.baseRegen.Value,
+            regenGrowth = Modules.Config.regenGrowth.Value,
 
-            jumpCount = 1,
+            moveSpeed = Modules.Config.baseMovementSpeed.Value,
+
+            damage = Modules.Config.baseDamage.Value,
+            damageGrowth = Modules.Config.damageGrowth.Value,
+
+            armor = Modules.Config.baseArmor.Value,
+            armorGrowth = Modules.Config.armorGrowth.Value,
+
+            crit = Modules.Config.baseCrit.Value,
+
+            jumpCount = Modules.Config.jumpCount.Value,
 
             sortPosition = 1f,
         };

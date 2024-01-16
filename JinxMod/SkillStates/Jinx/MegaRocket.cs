@@ -10,8 +10,8 @@ namespace JinxMod.SkillStates
 {
     public class MegaRocket : BaseSkillState
     {
-        public static float damageCoefficient = 13.5f;
-        public static float procCoefficient = 1f;
+        public static float damageCoefficient = Modules.Config.megaRocketDamageCoefficient.Value;
+        public static float procCoefficient = Modules.Config.megaRocketProcCoefficient.Value;
         public static float baseDuration = 1.0f;
         public static float throwForce = 80f;
 

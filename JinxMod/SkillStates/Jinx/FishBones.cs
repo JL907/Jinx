@@ -11,8 +11,8 @@ namespace JinxMod.SkillStates
 {
     public class FishBones : BaseSkillState
     {
-        public static float damageCoefficient = 6.5f;
-        public static float procCoefficient = 1f;
+        public static float damageCoefficient = Modules.Config.fishBonesDamageCoefficient.Value;
+        public static float procCoefficient = Modules.Config.fishBonesProcCoefficient.Value;
         public static float baseDuration = 1.50f;
         public static float throwForce = 80f;
 

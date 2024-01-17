@@ -37,7 +37,8 @@ namespace JinxMod.Modules
         public static ConfigEntry<float> megaRocketDamageCoefficient;
         public static ConfigEntry<float> megaRocketProcCoefficient;
         public static ConfigEntry<float> megaRocketCD;
-        public static ConfigEntry<float> rocketJumpForce;
+        public static ConfigEntry<float> rocketJumpFishBonesForce;
+        public static ConfigEntry<float> rocketJumpMegaRocketForce;
         public static ConfigEntry<float> rocketJumpRadius;
 
         public static void ReadConfig()
@@ -45,8 +46,9 @@ namespace JinxMod.Modules
             enableCharacter = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Enable Character"), true, new ConfigDescription("Enable Character", null, Array.Empty<object>()));
             voiceLines = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Voice Lines"), true, new ConfigDescription("Enable Voice Lines", null, Array.Empty<object>()));
             rocketJump = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Rocket Jumping"), true, new ConfigDescription("Enable Rocket Jumping", null, Array.Empty<object>()));
-            rocketJumpForce = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("00 - Other", "Rocket Jump Force"), 4000f, new ConfigDescription("Rocket Jump Force", null, Array.Empty<object>()));
-            rocketJumpRadius = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("00 - Other", "Rocket Jump Radius"), 8f, new ConfigDescription("Rocket Jump Radius", null, Array.Empty<object>()));
+            rocketJumpFishBonesForce = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("00 - Other", "Rocket Jump Force (Fishbones)"), 6000f, new ConfigDescription("Rocket Jump Force (Fishbones)", null, Array.Empty<object>()));
+            rocketJumpMegaRocketForce = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("00 - Other", "Rocket Jump Force (Mega Rocket)"), 12000f, new ConfigDescription("Rocket Jump Force (Mega Rocket)", null, Array.Empty<object>()));
+            rocketJumpRadius = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("00 - Other", "Rocket Jump Blast Radius"), 8f, new ConfigDescription("Rocket Jump Blast Radius", null, Array.Empty<object>()));
 
             baseHealth = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("01 - Character Stats", "Base Health"), 110f, new ConfigDescription("", null, Array.Empty<object>()));
             healthGrowth = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("01 - Character Stats", "Health Growth"), 30f, new ConfigDescription("", null, Array.Empty<object>()));

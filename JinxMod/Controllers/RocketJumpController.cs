@@ -18,7 +18,7 @@ namespace JinxMod.Controllers
         public Rigidbody rigidbody;
         public ProjectileImpactEventCaller projectileImpactEventCaller;
         private RocketJumpController.OwnerInfo owner;
-        public float explosionForce = Modules.Config.rocketJumpForce.Value;
+        public float explosionForce = 4000f;
         public float explosionRadius = Modules.Config.rocketJumpRadius.Value;
         private struct OwnerInfo
         {

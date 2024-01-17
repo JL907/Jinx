@@ -17,11 +17,10 @@
 ## Introduction
 A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care for the consequences. With an arsenal of deadly weapons, she unleashes the loudest blasts and brightest explosions to leave a trail of mayhem and panic in her wake. Jinx despises boredom and gleefully brings her own chaotic brand of pandemonium wherever she goes.
 
-## Latest Patch Notes `1.2.4`
+## Latest Patch Notes `1.2.5`
 `Bug reports can be posted in discord` https://discord.gg/aYuS9Wsxxx  
 
-* Added config
-* Changed Megarocket VFX
+* Enabled config to adjust rocket jumping force and radius
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">

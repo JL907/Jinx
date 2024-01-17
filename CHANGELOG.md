@@ -1,3 +1,6 @@
+`1.2.5`
+* Enabled config to adjust rocket jumping force and radius
+
 `1.2.4`
 * Added config
 * Changed Megarocket VFX

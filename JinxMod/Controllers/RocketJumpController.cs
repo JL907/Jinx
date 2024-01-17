@@ -18,8 +18,8 @@ namespace JinxMod.Controllers
         public Rigidbody rigidbody;
         public ProjectileImpactEventCaller projectileImpactEventCaller;
         private RocketJumpController.OwnerInfo owner;
-        public float explosionForce = 4000f;
-        public float explosionRadius = 8f;
+        public float explosionForce = Modules.Config.rocketJumpForce.Value;
+        public float explosionRadius = Modules.Config.rocketJumpRadius.Value;
         private struct OwnerInfo
         {
             public OwnerInfo(GameObject ownerGameObject)
@@ -100,13 +100,13 @@ namespace JinxMod.Controllers
             var dir = (characterBody.corePosition - explosionPosition);
             float wearoff = 1 - (dir.magnitude / explosionRadius);
             Vector3 baseForce = dir.normalized * explosionForce * wearoff;
-            characterBody.characterMotor.ApplyForce(baseForce);
+            if (Modules.Config.rocketJump.Value) characterBody.characterMotor.ApplyForce(baseForce);
 
             if (upliftModifier != 0)
             {
                 float upliftWearoff = 1 - upliftModifier / explosionRadius;
                 Vector3 upliftForce = Vector3.up * explosionForce * upliftWearoff;
-                characterBody.characterMotor.ApplyForce(upliftForce);
+                if (Modules.Config.rocketJump.Value) characterBody.characterMotor.ApplyForce(upliftForce);
             }
         }
     }

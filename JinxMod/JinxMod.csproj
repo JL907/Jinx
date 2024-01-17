@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<AssemblyName>LemonJinxMod</AssemblyName>
 		<LangVersion>7.3</LangVersion>
-		<Version>1.2.3</Version>
+		<Version>1.2.5</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -44,7 +44,7 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="if $(Configuration) == Debug (&#xD;&#xA;goto debug&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;if $(Configuration) == Release (&#xD;&#xA;goto release&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;:debug&#xD;&#xA;echo Debug, only dll is updated.&#xD;&#xA;goto:EOF&#xD;&#xA;&#xD;&#xA;:release&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetName).dll', '$(SolutionDir)icon.png', '$(SolutionDir)manifest.json', '$(SolutionDir)README.md' -DestinationPath '$(SolutionDir)$(TargetName) $(Version).zip' -Force&#xD;&#xA;goto:EOF:&#xD;&#xA;&#xD;&#xA;:eof&#xD;&#xA;" />
+		<Exec Command="if $(Configuration) == Debug (&#xD;&#xA;goto debug&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;if $(Configuration) == Release (&#xD;&#xA;goto release&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;:debug&#xD;&#xA;echo Debug, only dll is updated.&#xD;&#xA;goto:EOF&#xD;&#xA;&#xD;&#xA;:release&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetName).dll', '$(SolutionDir)icon.png', '$(SolutionDir)CHANGELOG.md', '$(SolutionDir)manifest.json', '$(SolutionDir)README.md' -DestinationPath '$(SolutionDir)$(TargetName) $(Version).zip' -Force&#xD;&#xA;goto:EOF:&#xD;&#xA;&#xD;&#xA;:eof&#xD;&#xA;" />
 	</Target>
 
 </Project>

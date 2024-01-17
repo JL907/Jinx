@@ -7,6 +7,7 @@ namespace JinxMod.Modules
     public static class Config
     {
         public static ConfigEntry<bool> voiceLines;
+        public static ConfigEntry<bool> rocketJump;
         public static ConfigEntry<bool> enableCharacter;
         public static ConfigEntry<float> armorGrowth;
         public static ConfigEntry<float> baseArmor;
@@ -36,11 +37,16 @@ namespace JinxMod.Modules
         public static ConfigEntry<float> megaRocketDamageCoefficient;
         public static ConfigEntry<float> megaRocketProcCoefficient;
         public static ConfigEntry<float> megaRocketCD;
+        public static ConfigEntry<float> rocketJumpForce;
+        public static ConfigEntry<float> rocketJumpRadius;
 
         public static void ReadConfig()
         {
             enableCharacter = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Enable Character"), true, new ConfigDescription("Enable Character", null, Array.Empty<object>()));
             voiceLines = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Voice Lines"), true, new ConfigDescription("Enable Voice Lines", null, Array.Empty<object>()));
+            rocketJump = JinxPlugin.instance.Config.Bind<bool>(new ConfigDefinition("00 - Other", "Rocket Jumping"), true, new ConfigDescription("Enable Rocket Jumping", null, Array.Empty<object>()));
+            rocketJumpForce = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("00 - Other", "Rocket Jump Force"), 4000f, new ConfigDescription("Rocket Jump Force", null, Array.Empty<object>()));
+            rocketJumpRadius = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("00 - Other", "Rocket Jump Radius"), 8f, new ConfigDescription("Rocket Jump Radius", null, Array.Empty<object>()));
 
             baseHealth = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("01 - Character Stats", "Base Health"), 110f, new ConfigDescription("", null, Array.Empty<object>()));
             healthGrowth = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("01 - Character Stats", "Health Growth"), 30f, new ConfigDescription("", null, Array.Empty<object>()));

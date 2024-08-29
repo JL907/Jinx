@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E0843B6B-24D7-40C9-95F9-8BC75C5D82E5}" SchemaVersion="97">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{E0843B6B-24D7-40C9-95F9-8BC75C5D82E5}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="JinxBank" ID="{8ACF4890-412E-42B3-8118-EA4F0CE5F1BF}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_JinxPowPowShoot" ID="{D8DBAE55-2184-403D-8269-FCADF6D99F39}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxMegaRocketShoot" ID="{FA73D213-327F-40AC-8415-A41C211970B2}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxRocketLoop" ID="{2A1A8B00-A0E6-40D4-BD3E-E2E016A85EAA}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxSwitch2FishBones" ID="{B4CBA713-4E5B-40D8-B87E-22BFE5A1B157}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxTauntVO" ID="{ABB90FD9-E4F0-4214-834F-F04A08DD1DC5}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxZapShoot" ID="{A12C5EDD-8C52-427D-BEB6-F7F4F12813D3}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxPowPowImpact" ID="{024E6A40-2FAF-42B6-86A2-EC1723A3BAB1}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxMovingVO" ID="{FC381F95-400B-42F9-97B9-14B4DE1A33DA}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxLaughVO" ID="{A8A63FE2-24F7-45D0-8BA3-FB1AD84A588A}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxMegaRocketVO" ID="{43F6B16B-73CB-46CE-AC5D-BF7A5B423317}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxMegaRocketImpact" ID="{DAF77EB3-5901-48EC-A6B7-D247BFFABEAC}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxDeathVO" ID="{82D41D8C-5BCE-4903-A00C-69079D1E09FE}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_JinxRocketLoop" ID="{FB4A2E20-BA05-49F2-B808-4F32A1D83526}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxZapImpact" ID="{20ED5DE1-1CA9-4AA3-8EB1-5F1706EB324D}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxJokeVO" ID="{F2D3FD98-4691-4C4C-A669-A84ED749D6BA}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxMegaRocketShootInitial" ID="{EA91ED18-4D75-4C55-AA53-0ADFE633767E}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxFishBonesImpact" ID="{73D204ED-B788-4C8B-B086-62036D461E7B}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxZapSFX" ID="{1F809266-EB4C-4D4B-A351-D939B9ECAF27}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxAttackVO" ID="{AD03F4EB-A317-4D6E-A89C-C5F6D50F3FD5}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxZapVO" ID="{CBF30FAC-A64E-4D94-AE1C-E8C39C392C0E}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxRecallVO" ID="{9F6F313F-DEF9-4D95-9331-9968BBDCA77A}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxFishBonesShoot" ID="{C355B4EA-A329-4DDF-B185-297FEA118D61}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxMenuSFX" ID="{55D6FD40-7B71-4F01-909B-83A9CC7EFD20}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_JinxSwitch2PowPow" ID="{8F61BF9A-F344-4F14-AA96-0D3C846A4B76}" WorkUnitID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

@@ -26,7 +26,6 @@ namespace JinxMod
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.recalculatestats", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.damagetype", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.xoxfaby.BetterUI", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("bubbet.networkedtimedbuffs", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
@@ -38,7 +37,7 @@ namespace JinxMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.Lemonlust.JinxMod";
         public const string MODNAME = "JinxMod";
-        public const string MODVERSION = "1.2.5";
+        public const string MODVERSION = "1.3.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "Lemonlust";
@@ -46,14 +45,11 @@ namespace JinxMod
         public static JinxPlugin instance;
         public static DamageAPI.ModdedDamageType jinxDamage;
 
-        public static bool betterUIInstalled = false;
-
         private void Awake()
         {
             instance = this;
             try
             {
-                if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.xoxfaby.BetterUI")) betterUIInstalled = true;
                 jinxDamage = DamageAPI.ReserveDamageType();
                 Log.Init(Logger);
                 Modules.Assets.Initialize(); // load assets and read config
@@ -72,10 +68,6 @@ namespace JinxMod
                 new Modules.ContentPacks().Initialize();
 
                 Hook();
-                if (betterUIInstalled)
-                {
-                    AddBetterUI();
-                }
             }
             catch (Exception e)
             {
@@ -83,13 +75,7 @@ namespace JinxMod
             }
         }
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-        private void AddBetterUI()
-        {
-            BetterUI.ProcCoefficientCatalog.AddSkill("JinxPowPow", "Pow-Pow!", PowPow.procCoefficient);
-            BetterUI.ProcCoefficientCatalog.AddSkill("JinxFishBones", "Fishbones!", FishBones.procCoefficient);
-            BetterUI.ProcCoefficientCatalog.AddSkill("JinxZap", "Zap!", Zap.procCoefficient);
-            BetterUI.ProcCoefficientCatalog.AddSkill("JinxMegaRocket", "Super Mega Death Rocket!", MegaRocket.procCoefficient);
-        }
+
 
         private void Hook()
         {

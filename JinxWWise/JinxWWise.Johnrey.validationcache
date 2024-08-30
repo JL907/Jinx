@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ValidationCache Version="1" SchemaVersion="97">
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Virtual Acoustics\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Triggers\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Switches\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\States\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\SoundBanks\Default Work Unit.wwu" DateLow="1650398110" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Queries\Factory Queries.wwu" DateLow="1646380656" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Queries\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Presets\Factory Spatial Audio.wwu" DateLow="1646380656" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Presets\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Modulators\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Mixing Sessions\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\JinxWWise.wproj" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\JinxWWise.Johnrey.wsettings" DateLow="1650420817" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Game Parameters\Default Work Unit.wwu" DateLow="1650233622" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Events\Default Work Unit.wwu" DateLow="1650398110" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Effects\Factory Effects.wwu" DateLow="1646380656" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Effects\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1646380656" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Conversion Settings\Default Work Unit.wwu" DateLow="1650233622" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Control Surface Sessions\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Audio Devices\Default Work Unit.wwu" DateLow="1650231549" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Attenuations\Default Work Unit.wwu" DateLow="1650420815" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1650420815" DateHigh="0"/>
+<ValidationCache Version="1" SchemaVersion="119">
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Virtual Acoustics\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Triggers\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Switches\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\States\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\SoundBanks\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Queries\Factory Queries.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Queries\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Presets\Factory Spatial Audio.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Presets\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Modulators\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Mixing Sessions\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Metadata\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\JinxWWise.wproj" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\JinxWWise.Johnrey.wsettings" DateLow="1724928893" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Game Parameters\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Events\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Effects\Factory Effects.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Effects\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Conversion Settings\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Control Surface Sessions\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Audio Devices\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Attenuations\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Johnrey\Desktop\Jinx\JinxWWise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1724928722" DateHigh="0"/>
 </ValidationCache>

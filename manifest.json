@@ -4,14 +4,15 @@
     "website_url": "https://github.com/JL907/Jinx",
     "description": "Jinx? Stands for Jinx! Durr.",
     "dependencies": [
-        "bbepis-BepInExPack-5.4.1905",
-		"RiskofThunder-HookGenPatcher-1.2.3",
-		"RiskofThunder-R2API_Core-5.0.0",
-		"RiskofThunder-R2API_Prefab-1.0.0",
-		"RiskofThunder-R2API_Language-1.0.0",
-		"RiskofThunder-R2API_Sound-1.0.0",
+        "bbepis-BepInExPack-5.4.2117",
+		"RiskofThunder-HookGenPatcher-1.2.4",
+		"RiskofThunder-R2API_Core-5.1.1",
+		"RiskofThunder-R2API_Prefab-1.0.4",
+		"RiskofThunder-R2API_Language-1.0.1",
+		"RiskofThunder-R2API_Sound-1.0.3",
 		"RiskofThunder-R2API_Networking-1.0.0",
-		"RiskofThunder-R2API_RecalculateStats-1.0.0",
-		"RiskofThunder-R2API_DamageType-1.0.0"
+		"RiskofThunder-R2API_RecalculateStats-1.4.0",
+		"RiskofThunder-R2API_DamageType-1.1.1",
+		"RiskofThunder-RoR2BepInExPack-1.19.0"
     ]
 }

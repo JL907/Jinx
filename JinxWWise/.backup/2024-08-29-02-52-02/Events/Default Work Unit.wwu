@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{A71B4CB2-B72D-4E6D-8033-173A17284DA4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="VO" ID="{81CBC382-9F08-45C5-A93F-BA33349B2202}" ShortID="655325054">
+					<ChildrenList>
+						<Event Name="Play_JinxLaughVO" ID="{A8A63FE2-24F7-45D0-8BA3-FB1AD84A588A}">
+							<ChildrenList>
+								<Action Name="" ID="{46C41231-5563-4B19-A01F-5345879B9F5C}" ShortID="40736956">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxLaughVO" ID="{A6679C4E-398D-40E8-9A0A-36824D7C64C9}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxMegaRocketVO" ID="{43F6B16B-73CB-46CE-AC5D-BF7A5B423317}">
+							<ChildrenList>
+								<Action Name="" ID="{D17682A6-4F3A-4B5D-B0E2-86DE914627F8}" ShortID="1050874853">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxMegaRocketVO" ID="{E9C6F4D9-EE1B-440B-BDC5-89BABB9112CA}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxAttackVO" ID="{AD03F4EB-A317-4D6E-A89C-C5F6D50F3FD5}">
+							<ChildrenList>
+								<Action Name="" ID="{35196CED-8C14-4264-A71A-6213E6BA16AA}" ShortID="936809358">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxAttackVO" ID="{9D3CCC8B-AF98-4E20-9820-AEE253C2F63E}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxMovingVO" ID="{FC381F95-400B-42F9-97B9-14B4DE1A33DA}">
+							<ChildrenList>
+								<Action Name="" ID="{1A437E8E-31CF-4432-B125-8D49E6FD0F7C}" ShortID="705014801">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxMovingVO" ID="{1C4A15EE-9A85-4125-93E7-0615CD01B805}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxDeathVO" ID="{82D41D8C-5BCE-4903-A00C-69079D1E09FE}">
+							<ChildrenList>
+								<Action Name="" ID="{AD3285A6-F570-48BF-9DF4-3C2DF3834C50}" ShortID="878955787">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxDeathVO" ID="{4CADB2BC-1710-4D38-8F22-2652F91B95F9}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxZapVO" ID="{CBF30FAC-A64E-4D94-AE1C-E8C39C392C0E}">
+							<ChildrenList>
+								<Action Name="" ID="{00A59DB2-16B0-41FC-B2F6-F7CBD4A6A88D}" ShortID="222624846">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxZapVO" ID="{BCA4311F-E3CF-4372-A341-217AB435AB97}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxRecallVO" ID="{9F6F313F-DEF9-4D95-9331-9968BBDCA77A}">
+							<ChildrenList>
+								<Action Name="" ID="{FC88955E-15DD-499E-86D6-7E0A399444E8}" ShortID="854285995">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxRecallVO" ID="{2259CC6D-4627-449C-BEE5-2E51C72DF131}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxJokeVO" ID="{F2D3FD98-4691-4C4C-A669-A84ED749D6BA}">
+							<ChildrenList>
+								<Action Name="" ID="{0AB05866-17E8-4F6A-92A2-78BD31CE0CFF}" ShortID="658396050">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxJokeVO" ID="{695E4213-6D68-41E8-89B8-B49D37271B8D}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxTauntVO" ID="{ABB90FD9-E4F0-4214-834F-F04A08DD1DC5}">
+							<ChildrenList>
+								<Action Name="" ID="{7FF2503B-A0A5-4E99-94EB-D6E687E78D77}" ShortID="1053526761">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxTauntVO" ID="{AC52D06A-EE3A-4E68-B08D-039910A5FC43}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="SFX" ID="{87122733-36A5-453D-ADC1-44ACFEA9635E}" ShortID="580690608">
+					<ChildrenList>
+						<Event Name="Play_JinxFishBonesImpact" ID="{73D204ED-B788-4C8B-B086-62036D461E7B}">
+							<ChildrenList>
+								<Action Name="" ID="{EE4E4320-1194-4137-B92F-757733B39AE4}" ShortID="973907256">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxFishBonesImpact" ID="{032363AF-3B5F-4219-A080-BDECE8A5DEBE}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxMegaRocketShootInitial" ID="{EA91ED18-4D75-4C55-AA53-0ADFE633767E}">
+							<ChildrenList>
+								<Action Name="" ID="{FE170E53-70F5-4840-8195-F0A6DC3D7F85}" ShortID="516303132">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxMegaRocketShootInitial" ID="{822A2228-ECFA-4B5C-9566-66DB736CC0E2}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxZapSFX" ID="{1F809266-EB4C-4D4B-A351-D939B9ECAF27}">
+							<ChildrenList>
+								<Action Name="" ID="{6D449974-E976-429B-BE04-C04FBD552159}" ShortID="349143634">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxZapSFX" ID="{918C0879-BFEB-4953-9447-8AF190B5927B}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxZapImpact" ID="{20ED5DE1-1CA9-4AA3-8EB1-5F1706EB324D}">
+							<ChildrenList>
+								<Action Name="" ID="{60B148D9-B1B2-46C8-8111-080947056A0C}" ShortID="258524747">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxZapImpact" ID="{1D65BCDB-09F9-4ACF-B52B-A4436F8C5690}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxPowPowShoot" ID="{D8DBAE55-2184-403D-8269-FCADF6D99F39}">
+							<ChildrenList>
+								<Action Name="" ID="{8BBDE219-3B97-456F-A5F3-8C016A6F6A6C}" ShortID="608517589">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxPowPowShoot" ID="{8D919905-DBFF-49CD-BA70-FF51C39968CE}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxPowPowImpact" ID="{024E6A40-2FAF-42B6-86A2-EC1723A3BAB1}">
+							<ChildrenList>
+								<Action Name="" ID="{5011EE15-1BDC-4849-957C-3F2D27F0AD5A}" ShortID="30935099">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxPowPowImpact" ID="{E68C2F90-9F93-49B7-8034-21069983D8EB}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxMegaRocketShoot" ID="{FA73D213-327F-40AC-8415-A41C211970B2}">
+							<ChildrenList>
+								<Action Name="" ID="{05F01692-D2C5-497F-BA48-99069AB02EE6}" ShortID="368522121">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxMegaRocketShoot" ID="{C00C747D-F919-4A73-BDC6-2E7594BDE2CD}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxZapShoot" ID="{A12C5EDD-8C52-427D-BEB6-F7F4F12813D3}">
+							<ChildrenList>
+								<Action Name="" ID="{55F8CE0F-EECD-4999-B86E-8033E845F2EE}" ShortID="572421446">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxZapShoot" ID="{48D70A63-5220-4AD0-80A1-A5100A7F722B}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxMegaRocketImpact" ID="{DAF77EB3-5901-48EC-A6B7-D247BFFABEAC}">
+							<ChildrenList>
+								<Action Name="" ID="{1C00FFFC-DA80-4B73-9CF0-8169DF29EBAD}" ShortID="375618354">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxMegaRocketImpact" ID="{33A91052-BDB4-4A0F-83BF-1B1A49671E43}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxRocketLoop" ID="{2A1A8B00-A0E6-40D4-BD3E-E2E016A85EAA}">
+							<ChildrenList>
+								<Action Name="" ID="{2546EEB6-B5B5-4169-BE1B-C1BD2A7EA7DB}" ShortID="956933108">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxRocketLoop" ID="{494B7A96-50BF-4575-9DDC-C7840D36C3AE}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxSwitch2FishBones" ID="{B4CBA713-4E5B-40D8-B87E-22BFE5A1B157}">
+							<ChildrenList>
+								<Action Name="" ID="{CCF35734-8A16-4752-BF7D-4E6792CEBDDF}" ShortID="286594866">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxSwitch2FishBones" ID="{A01E2A90-CFD3-4EFE-BC3F-7541F270A107}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxSwitch2PowPow" ID="{8F61BF9A-F344-4F14-AA96-0D3C846A4B76}">
+							<ChildrenList>
+								<Action Name="" ID="{D0B93070-8064-4B4B-922A-20FA9AB41CC4}" ShortID="346907606">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxSwitch2PowPow" ID="{94632CE1-7292-4D50-AF53-0BC977D9DF56}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxFishBonesShoot" ID="{C355B4EA-A329-4DDF-B185-297FEA118D61}">
+							<ChildrenList>
+								<Action Name="" ID="{30A13524-B937-4622-A83D-CDBF547CFFFC}" ShortID="396381869">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxFishBonesShoot" ID="{A9936F5E-D400-4BA0-BEB7-00E2631DE570}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_JinxRocketLoop" ID="{FB4A2E20-BA05-49F2-B808-4F32A1D83526}">
+							<ChildrenList>
+								<Action Name="" ID="{B0ECAEF9-64B0-4D4D-B995-7A6423A686C9}" ShortID="655499699">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxRocketLoop" ID="{494B7A96-50BF-4575-9DDC-C7840D36C3AE}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JinxMenuSFX" ID="{55D6FD40-7B71-4F01-909B-83A9CC7EFD20}">
+							<ChildrenList>
+								<Action Name="" ID="{39686F2D-DCE7-4059-AD1F-554E96E4F537}" ShortID="1023742193">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JinxMenuSFX" ID="{322867D5-6628-4718-97D7-3B39218CCF1D}" WorkUnitID="{A76274DA-E6F4-4F6F-96F1-B3C9BE656C19}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

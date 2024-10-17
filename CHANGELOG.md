@@ -1,3 +1,6 @@
+`1.3.0`
+* Updated for SOTS
+
 `1.2.5`
 * Enabled config to adjust rocket jumping force and radius
 

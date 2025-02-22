@@ -54,13 +54,13 @@ namespace JinxMod.Modules
             ImpactExplosion.lifetimeAfterImpact = 0.1f;
 
             ProjectileSimple projectileSimple = missilePrefab.AddComponent<ProjectileSimple>();
-            projectileSimple.desiredForwardSpeed = 80f;
+            projectileSimple.desiredForwardSpeed = 100f;
             projectileSimple.oscillate = false;
             projectileSimple.updateAfterFiring = true;
             projectileSimple.enableVelocityOverLifetime = false;
 
             Rigidbody rigidBody = missilePrefab.GetComponent<Rigidbody>();
-            rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+            rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
             ProjectileController projectileController = missilePrefab.GetComponent<ProjectileController>();
 
@@ -87,7 +87,7 @@ namespace JinxMod.Modules
             projectileController.flightSoundLoop = loopSoundDef;
 
             BoxCollider boxCollider = missilePrefab.GetComponent<BoxCollider>();
-            boxCollider.size = new Vector3(0.075f, 0.075f, 0.075f);
+            boxCollider.size = new Vector3(0.035f, 0.035f, 0.035f);
 
             missilePrefab.AddComponent<ProjectileImpactEventCaller>();
             RocketJumpController rocketJumpController = missilePrefab.AddComponent<RocketJumpController>();
@@ -120,7 +120,7 @@ namespace JinxMod.Modules
             projectileSimple.enableVelocityOverLifetime = false;
 
             Rigidbody rigidBody = megaRocketPrefab.GetComponent<Rigidbody>();
-            rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+            rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
             ProjectileController projectileController = megaRocketPrefab.GetComponent<ProjectileController>();
             var ghostPrefab = PrefabAPI.InstantiateClone(projectileController.ghostPrefab, "MegaRocketGhost", false);

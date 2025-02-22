@@ -1,3 +1,9 @@
+`1.4.0`
+* Reduced Rev'd up buff attack speed to 18% down from 30% per stack
+* Increased Fishbones projectile speed
+* Increased Fishbones damage to 800% up from 650%
+* Jinx will now properly ignore fall damage for 10 seconds after rocket jumping
+
 `1.3.0`
 * Updated for SOTS
 

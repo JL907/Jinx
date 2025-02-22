@@ -17,10 +17,13 @@
 ## Introduction
 A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care for the consequences. With an arsenal of deadly weapons, she unleashes the loudest blasts and brightest explosions to leave a trail of mayhem and panic in her wake. Jinx despises boredom and gleefully brings her own chaotic brand of pandemonium wherever she goes.
 
-## Latest Patch Notes `1.3.1`
+## Latest Patch Notes `1.4.0`
 `Bug reports can be posted in discord` https://discord.gg/aYuS9Wsxxx  
 
-* Fixed rocket jump
+* Reduced Rev'd up buff attack speed to 18% down from 30% per stack
+* Increased Fishbones projectile speed
+* Increased Fishbones damage to 800% up from 650%
+* Jinx will now properly ignore fall damage for 10 seconds after rocket jumping
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">

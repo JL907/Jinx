@@ -37,7 +37,7 @@ namespace JinxMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.Lemonlust.JinxMod";
         public const string MODNAME = "JinxMod";
-        public const string MODVERSION = "1.3.1";
+        public const string MODVERSION = "1.4.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "Lemonlust";
@@ -88,7 +88,7 @@ namespace JinxMod
         {
             if (sender.HasBuff(Modules.Buffs.revdUp))
             {
-                args.attackSpeedMultAdd += ((sender.GetBuffCount(Modules.Buffs.revdUp) * 0.30f));
+                args.attackSpeedMultAdd += ((sender.GetBuffCount(Modules.Buffs.revdUp) * 0.18f));
             }
 
             if (sender.HasBuff(Modules.Buffs.getExcitedSpeedBuff))

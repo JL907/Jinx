@@ -82,17 +82,10 @@ namespace JinxMod.Controllers
                 CharacterBody characterBody = collision.GetComponent<CharacterBody>();
                 if (this.owner.characterBody == characterBody && characterBody && characterBody?.bodyIndex == BodyCatalog.FindBodyIndex("JinxBody"))
                 {
-                    this.owner.characterMotor.onHitGround += CharacterMotor_onHitGround;
-                    this.owner.characterMotor.Motor.ForceUnground();
-                    this.owner.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
+                    this.owner.characterBody.AddTimedBuff(JunkContent.Buffs.IgnoreFallDamage, 10f, 1);
                     AddExplosionForce(characterBody, explosionForce, projectileImpactInfo.estimatedPointOfImpact, explosionRadius, 0f);
                 }
             }
-        }
-
-        private void CharacterMotor_onHitGround(ref CharacterMotor.HitGroundInfo hitGroundInfo)
-        {
-            this.owner.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
         }
 
         private void AddExplosionForce(CharacterBody characterBody, float explosionForce, Vector3 explosionPosition, float explosionRadius, float upliftModifier = 0)

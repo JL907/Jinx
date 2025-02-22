@@ -68,7 +68,7 @@ namespace JinxMod.Modules
 
             jumpCount = JinxPlugin.instance.Config.Bind<int>(new ConfigDefinition("01 - Character Stats", "Jump Count"), 1, new ConfigDescription("", null, Array.Empty<object>()));
 
-            fishBonesDamageCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("02 - Fish Bones", "Fish Bones Damage Coefficient"), 6.5f, new ConfigDescription("", null, Array.Empty<object>()));
+            fishBonesDamageCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("02 - Fish Bones", "Fish Bones Damage Coefficient"), 8f, new ConfigDescription("", null, Array.Empty<object>()));
             fishBonesProcCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("02 - Fish Bones", "Fish Bones Proc Coefficient"), 1f, new ConfigDescription("", null, Array.Empty<object>()));
 
             powPowDamageCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("02 - Pow Pow", "Pow Pow Damage Coefficient"), 1.65f, new ConfigDescription("", null, Array.Empty<object>()));

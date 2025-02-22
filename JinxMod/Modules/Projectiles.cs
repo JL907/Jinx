@@ -54,7 +54,7 @@ namespace JinxMod.Modules
             ImpactExplosion.lifetimeAfterImpact = 0.1f;
 
             ProjectileSimple projectileSimple = missilePrefab.AddComponent<ProjectileSimple>();
-            projectileSimple.desiredForwardSpeed = 60f;
+            projectileSimple.desiredForwardSpeed = 80f;
             projectileSimple.oscillate = false;
             projectileSimple.updateAfterFiring = true;
             projectileSimple.enableVelocityOverLifetime = false;

@@ -47,13 +47,13 @@ namespace JinxMod.Modules
             LanguageAPI.Add(prefix + "PRIMARY_POWPOW_NAME", "Pow-Pow");
             LanguageAPI.Add(prefix + "PRIMARY_POWPOW_DESCRIPTION",
                 "Basic attacks with Pow-Pow deal " + $"<color=#f68835>3x{100f * PowPow.damageCoefficient}% damage</color>" + " and generate a <color=#c9aa71>stack</color> of Rev'd up for 2.5 seconds, stacking up to 3 times, with the duration refreshing on subsequent attacks with Pow-Pow." + Environment.NewLine
-            + "Rev'd up grants <color=#f68835>30% bonus attack speed.</color>");
+            + "Rev'd up grants <color=#f68835>18% bonus attack speed.</color>");
 
             LanguageAPI.Add(prefix + "PRIMARY_FISHBONES_NAME", "Fishbones");
             LanguageAPI.Add(prefix + "PRIMARY_FISHBONES_DESCRIPTION",
               "Basic attacks with Fishbones deal " + $"<color=#f68835>{100f * FishBones.damageCoefficient}% damage</color>" + " to the primary target as well as surrounding enemies." + Environment.NewLine
             + "Jinx can Rocket Jump with Fishbones." + Environment.NewLine
-            + "Jinx nullifies fall damage if she's knocked back by her own Rocket.");
+            + "Jinx nullifies fall damage if she's knocked back by her own Rocket for the next 10 seconds.");
             #endregion
 
             #region Secondary

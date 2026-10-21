@@ -30,6 +30,7 @@ namespace JinxMod.Modules
         private static void CreateMissile()
         {
             missilePrefab = CloneProjectilePrefab("MissileProjectile", "JinxMissileProjectile");
+            if (!missilePrefab) return;
             GameObject.Destroy(missilePrefab.GetComponent<MissileController>());
             GameObject.Destroy(missilePrefab.GetComponent<ProjectileSingleTargetImpact>());
 
@@ -66,20 +67,8 @@ namespace JinxMod.Modules
 
             projectileController.allowPrediction = false;
 
-            var ghostPrefab = PrefabAPI.InstantiateClone(projectileController.ghostPrefab, "MissileGhost", false);
             missilePrefab.transform.localScale *= 5;
-            ghostPrefab.transform.localScale *= 5;
-
-            var Trail = ghostPrefab.GetComponentInChildren<Transform>().Find("Trail");
-            Trail.transform.localScale *= 2.5f;
-            TrailRenderer trailRenderer = Trail.GetComponent<TrailRenderer>();
-            trailRenderer.time = 1f;
-            trailRenderer.startWidth = 2.5f;
-            trailRenderer.endWidth = 2.5f;
-            var Flare = ghostPrefab.GetComponentInChildren<Transform>().Find("Flare");
-            Flare.transform.localScale *= 2.5f;
-
-            projectileController.ghostPrefab = ghostPrefab;
+            SetupScaledGhost(projectileController, "MissileGhost", 5f, 2.5f);
 
             LoopSoundDef loopSoundDef = ScriptableObject.CreateInstance<LoopSoundDef>();
             loopSoundDef.startSoundName = "Play_JinxRocketLoop";
@@ -97,6 +86,7 @@ namespace JinxMod.Modules
         private static void CreateMegaRocket()
         {
             megaRocketPrefab = CloneProjectilePrefab("MissileProjectile", "JinxMegaRocketProjectile");
+            if (!megaRocketPrefab) return;
             GameObject.Destroy(megaRocketPrefab.GetComponent<MissileController>());
             GameObject.Destroy(megaRocketPrefab.GetComponent<ProjectileSingleTargetImpact>());
 
@@ -123,21 +113,8 @@ namespace JinxMod.Modules
             rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
             ProjectileController projectileController = megaRocketPrefab.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(projectileController.ghostPrefab, "MegaRocketGhost", false);
             megaRocketPrefab.transform.localScale *= 10;
-            ghostPrefab.transform.localScale *= 10;
-
-            var Trail = ghostPrefab.GetComponentInChildren<Transform>().Find("Trail");
-            Trail.transform.localScale *= 7.5f;
-            TrailRenderer trailRenderer = Trail.GetComponent<TrailRenderer>();
-            trailRenderer.time = 1f;
-            trailRenderer.startWidth = 7.5f;
-            trailRenderer.endWidth = 7.5f;
-
-            var Flare = ghostPrefab.GetComponentInChildren<Transform>().Find("Flare");
-            Flare.transform.localScale *= 7.5f;
-
-            projectileController.ghostPrefab = ghostPrefab;
+            SetupScaledGhost(projectileController, "MegaRocketGhost", 10f, 7.5f);
 
             LoopSoundDef loopSoundDef = ScriptableObject.CreateInstance<LoopSoundDef>();
             loopSoundDef.startSoundName = "Play_JinxRocketLoop";
@@ -156,6 +133,7 @@ namespace JinxMod.Modules
         private static void CreateZap()
         {
             zapPrefab = CloneProjectilePrefab("CaptainTazer", "JinxZapProjectile");
+            if (!zapPrefab) return;
             GameObject.Destroy(zapPrefab.GetComponent<ProjectileStickOnImpact>());
             ProjectileImpactExplosion ImpactExplosion = zapPrefab.GetComponent<ProjectileImpactExplosion>();
             ImpactExplosion.destroyOnWorld = true;
@@ -165,6 +143,7 @@ namespace JinxMod.Modules
         private static void CreateBomb()
         {
             bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "HenryBombProjectile");
+            if (!bombPrefab) return;
 
             ProjectileImpactExplosion bombImpactExplosion = bombPrefab.GetComponent<ProjectileImpactExplosion>();
             InitializeImpactExplosion(bombImpactExplosion);
@@ -184,7 +163,7 @@ namespace JinxMod.Modules
 
         internal static void AddProjectile(GameObject projectileToAdd)
         {
-            Modules.Content.AddProjectilePrefab(projectileToAdd);
+            if (projectileToAdd) Modules.Content.AddProjectilePrefab(projectileToAdd);
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
@@ -221,10 +200,80 @@ namespace JinxMod.Modules
             return ghostPrefab;
         }
 
+        // Clones the vanilla missile ghost, scales it up, and widens its trail/flare.
+        // Newer RoR2 builds can leave ProjectileController.ghostPrefab null (ghost is referenced via Addressables instead),
+        // so resolve it defensively and skip the customization rather than crashing plugin Awake().
+        private static void SetupScaledGhost(ProjectileController projectileController, string newGhostName, float ghostScale, float trailScale)
+        {
+            GameObject originalGhost = ResolveGhostPrefab(projectileController);
+            if (!originalGhost)
+            {
+                Log.Warning($"[JinxMod] Could not find vanilla missile ghost; {newGhostName} will use the default visuals.");
+                return;
+            }
+
+            GameObject ghostPrefab = PrefabAPI.InstantiateClone(originalGhost, newGhostName, false);
+            ghostPrefab.transform.localScale *= ghostScale;
+
+            Transform trail = ghostPrefab.transform.Find("Trail");
+            if (trail)
+            {
+                trail.localScale *= trailScale;
+                TrailRenderer trailRenderer = trail.GetComponent<TrailRenderer>();
+                if (trailRenderer)
+                {
+                    trailRenderer.time = 1f;
+                    trailRenderer.startWidth = trailScale;
+                    trailRenderer.endWidth = trailScale;
+                }
+            }
+
+            Transform flare = ghostPrefab.transform.Find("Flare");
+            if (flare) flare.localScale *= trailScale;
+
+            projectileController.ghostPrefab = ghostPrefab;
+            // make sure the game doesn't load the vanilla ghost over ours via an addressable reference
+            ClearGhostPrefabReference(projectileController);
+        }
+
+        private static GameObject ResolveGhostPrefab(ProjectileController projectileController)
+        {
+            if (projectileController.ghostPrefab) return projectileController.ghostPrefab;
+
+            // look for an AssetReference-style ghost field (name varies by game version), without a hard compile-time dependency
+            foreach (var field in typeof(ProjectileController).GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic))
+            {
+                if (!field.Name.ToLower().Contains("ghost")) continue;
+                if (field.GetValue(projectileController) is UnityEngine.AddressableAssets.AssetReference assetRef && assetRef.RuntimeKeyIsValid())
+                {
+                    GameObject loaded = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>(assetRef.RuntimeKey).WaitForCompletion();
+                    if (loaded) return loaded;
+                }
+            }
+
+            return GameAssets.Load<GameObject>("Prefabs/ProjectileGhosts/MissileGhost", "MissileGhost.prefab");
+        }
+
+        private static void ClearGhostPrefabReference(ProjectileController projectileController)
+        {
+            foreach (var field in typeof(ProjectileController).GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic))
+            {
+                if (field.Name.ToLower().Contains("ghost") && typeof(UnityEngine.AddressableAssets.AssetReference).IsAssignableFrom(field.FieldType))
+                {
+                    field.SetValue(projectileController, null);
+                }
+            }
+        }
+
         private static GameObject CloneProjectilePrefab(string prefabName, string newPrefabName)
         {
-            GameObject newPrefab = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Projectiles/" + prefabName), newPrefabName);
-            return newPrefab;
+            GameObject original = GameAssets.Load<GameObject>("Prefabs/Projectiles/" + prefabName, prefabName + ".prefab");
+            if (!original)
+            {
+                Log.Error("Vanilla projectile " + prefabName + " not found, " + newPrefabName + " will not be created");
+                return null;
+            }
+            return PrefabAPI.InstantiateClone(original, newPrefabName);
         }
     }
 }

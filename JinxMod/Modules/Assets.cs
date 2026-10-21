@@ -34,7 +34,7 @@ namespace JinxMod.Modules
 
 
         // cache these and use to create our own materials
-        internal static Shader hotpoo = RoR2.LegacyResourcesAPI.Load<Shader>("Shaders/Deferred/HGStandard");
+        internal static Shader hotpoo = GameAssets.Load<Shader>("Shaders/Deferred/HGStandard", "HGStandard.shader");
         internal static Material commandoMat;
         private static string[] assetNames = new string[0];
 
@@ -130,9 +130,10 @@ namespace JinxMod.Modules
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)
         {
-            if (RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/" + originalTracerName) == null) return null;
+            GameObject originalTracer = GameAssets.Load<GameObject>("Prefabs/Effects/Tracers/" + originalTracerName, originalTracerName + ".prefab");
+            if (!originalTracer) return null;
 
-            GameObject newTracer = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/" + originalTracerName), newTracerName, true);
+            GameObject newTracer = PrefabAPI.InstantiateClone(originalTracer, newTracerName, true);
 
             if (!newTracer.GetComponent<EffectComponent>()) newTracer.AddComponent<EffectComponent>();
             if (!newTracer.GetComponent<VFXAttributes>()) newTracer.AddComponent<VFXAttributes>();
@@ -204,8 +205,9 @@ namespace JinxMod.Modules
 
         internal static GameObject LoadCrosshair(string crosshairName)
         {
-            if (RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Crosshair/" + crosshairName + "Crosshair") == null) return RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Crosshair/StandardCrosshair");
-            return RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Crosshair/" + crosshairName + "Crosshair");
+            GameObject crosshair = GameAssets.Load<GameObject>("Prefabs/Crosshair/" + crosshairName + "Crosshair", crosshairName + "Crosshair.prefab");
+            if (!crosshair) crosshair = GameAssets.Load<GameObject>("Prefabs/Crosshair/StandardCrosshair", "StandardCrosshair.prefab");
+            return crosshair;
         }
 
         private static GameObject LoadEffect(string resourceName)

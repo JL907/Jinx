@@ -32,7 +32,7 @@ namespace JinxMod.Modules {
 
         public static GameObject CreateBodyPrefab(string bodyName, string modelName, BodyInfo bodyInfo)
         {
-            GameObject clonedBody = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterBodies/" + bodyInfo.bodyNameToClone + "Body");
+            GameObject clonedBody = GameAssets.Load<GameObject>("Prefabs/CharacterBodies/" + bodyInfo.bodyNameToClone + "Body", bodyInfo.bodyNameToClone + "Body.prefab");
             if (!clonedBody)
             {
                 Log.Error(bodyInfo.bodyNameToClone + "Body is not a valid body, character creation failed");
@@ -127,7 +127,13 @@ namespace JinxMod.Modules {
 
         public static void CreateGenericDoppelganger(GameObject bodyPrefab, string masterName, string masterToCopy)
         {
-            GameObject newMaster = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterMasters/" + masterToCopy + "MonsterMaster"), masterName, true);
+            GameObject masterToClone = GameAssets.Load<GameObject>("Prefabs/CharacterMasters/" + masterToCopy + "MonsterMaster", masterToCopy + "MonsterMaster.prefab");
+            if (!masterToClone)
+            {
+                Log.Error(masterToCopy + "MonsterMaster not found, skipping doppelganger " + masterName);
+                return;
+            }
+            GameObject newMaster = PrefabAPI.InstantiateClone(masterToClone, masterName, true);
             newMaster.GetComponent<CharacterMaster>().bodyPrefab = bodyPrefab;
 
             Modules.Content.AddMasterPrefab(newMaster);
@@ -325,8 +331,10 @@ namespace JinxMod.Modules {
             FootstepHandler footstepHandler = model.AddComponent<FootstepHandler>();
             footstepHandler.baseFootstepString = "Play_player_footstep";
             footstepHandler.sprintFootstepOverrideString = "";
-            footstepHandler.enableFootstepDust = true;
-            footstepHandler.footstepDustPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/GenericFootstepDust");
+            GameObject footstepDust = GameAssets.Load<GameObject>("Prefabs/GenericFootstepDust", "GenericFootstepDust.prefab");
+            footstepHandler.footstepDustPrefab = footstepDust;
+            // FootstepHandler.Start() instantiates this prefab unconditionally when enabled, so only enable it if it actually loaded
+            footstepHandler.enableFootstepDust = footstepDust != null;
         }
 
         private static void SetupRagdoll(GameObject model)
@@ -335,7 +343,16 @@ namespace JinxMod.Modules {
 
             if (!ragdollController) return;
 
-            if (ragdollMaterial == null) ragdollMaterial = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterBodies/CommandoBody").GetComponentInChildren<RagdollController>().bones[1].GetComponent<Collider>().material;
+            if (ragdollMaterial == null)
+            {
+                GameObject commandoBody = GameAssets.Load<GameObject>("Prefabs/CharacterBodies/CommandoBody", "CommandoBody.prefab");
+                RagdollController commandoRagdoll = commandoBody ? commandoBody.GetComponentInChildren<RagdollController>() : null;
+                if (commandoRagdoll && commandoRagdoll.bones != null && commandoRagdoll.bones.Length > 1)
+                {
+                    Collider boneCollider = commandoRagdoll.bones[1].GetComponent<Collider>();
+                    if (boneCollider) ragdollMaterial = boneCollider.material;
+                }
+            }
 
             foreach (Transform boneTransform in ragdollController.bones)
             {

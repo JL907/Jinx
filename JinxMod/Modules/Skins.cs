@@ -45,6 +45,17 @@ namespace JinxMod.Modules
             skinDef.nameToken = skinDefInfo.NameToken;
             skinDef.name = skinDefInfo.Name;
 
+            // Current RoR2 reads skin data from SkinDefParams; the legacy fields above are obsolete.
+            // Fill both so the skin applies on new builds without needing SeekersPatcher.
+            SkinDefParams skinParams = ScriptableObject.CreateInstance<SkinDefParams>();
+            skinParams.name = skinDefInfo.Name + "Params";
+            skinParams.rendererInfos = skinDefInfo.RendererInfos;
+            skinParams.gameObjectActivations = Array.Empty<SkinDefParams.GameObjectActivation>();
+            skinParams.meshReplacements = Array.Empty<SkinDefParams.MeshReplacement>();
+            skinParams.projectileGhostReplacements = Array.Empty<SkinDefParams.ProjectileGhostReplacement>();
+            skinParams.minionSkinReplacements = Array.Empty<SkinDefParams.MinionSkinReplacement>();
+            skinDef.skinDefParams = skinParams;
+
             On.RoR2.SkinDef.Awake -= DoNothing;
 
             return skinDef;

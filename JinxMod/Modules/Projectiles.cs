@@ -205,7 +205,7 @@ namespace JinxMod.Modules
         // so resolve it defensively and skip the customization rather than crashing plugin Awake().
         private static void SetupScaledGhost(ProjectileController projectileController, string newGhostName, float ghostScale, float trailScale)
         {
-            GameObject originalGhost = ResolveGhostPrefab(projectileController);
+            GameObject originalGhost = ResolveGhostPrefab(projectileController, "RoR2/Base/Common/MissileGhost.prefab");
             if (!originalGhost)
             {
                 Log.Warning($"[JinxMod] Could not find vanilla missile ghost; {newGhostName} will use the default visuals.");
@@ -236,7 +236,7 @@ namespace JinxMod.Modules
             ClearGhostPrefabReference(projectileController);
         }
 
-        private static GameObject ResolveGhostPrefab(ProjectileController projectileController)
+        private static GameObject ResolveGhostPrefab(ProjectileController projectileController, string fallbackAddress)
         {
             if (projectileController.ghostPrefab) return projectileController.ghostPrefab;
 
@@ -251,7 +251,14 @@ namespace JinxMod.Modules
                 }
             }
 
-            return GameAssets.Load<GameObject>("Prefabs/ProjectileGhosts/MissileGhost", "MissileGhost.prefab");
+            try
+            {
+                return UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>(fallbackAddress).WaitForCompletion();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private static void ClearGhostPrefabReference(ProjectileController projectileController)
@@ -267,13 +274,8 @@ namespace JinxMod.Modules
 
         private static GameObject CloneProjectilePrefab(string prefabName, string newPrefabName)
         {
-            GameObject original = GameAssets.Load<GameObject>("Prefabs/Projectiles/" + prefabName, prefabName + ".prefab");
-            if (!original)
-            {
-                Log.Error("Vanilla projectile " + prefabName + " not found, " + newPrefabName + " will not be created");
-                return null;
-            }
-            return PrefabAPI.InstantiateClone(original, newPrefabName);
+            GameObject newPrefab = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Projectiles/" + prefabName), newPrefabName);
+            return newPrefab;
         }
     }
 }

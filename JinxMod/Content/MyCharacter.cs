@@ -30,7 +30,7 @@ namespace JinxMod.Modules.Survivors
             bodyColor = Color.cyan,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
-            podPrefab = Modules.GameAssets.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod", "SurvivorPod.prefab"),
+            podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = Modules.Config.baseHealth.Value,
             healthGrowth = Modules.Config.healthGrowth.Value,

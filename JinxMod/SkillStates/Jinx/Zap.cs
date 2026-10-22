@@ -87,7 +87,6 @@ namespace JinxMod.SkillStates
                 ProjectileManager.instance.FireProjectile(fireProjectileInfo);
             }
             
-            //MissileUtils.FireMissile(aimRay.origin, this.characterBody, default(ProcChainMask), null, this.characterBody.damage * num, isCrit, projectilePrefab, DamageColorIndex.Default, aimRay.direction, 200f, true);
         }
 
         public override void FixedUpdate()

@@ -152,7 +152,6 @@ namespace JinxMod.Modules
             bombImpactExplosion.destroyOnEnemy = true;
             bombImpactExplosion.lifetime = 12f;
             bombImpactExplosion.impactEffect = Modules.Assets.bombExplosionEffect;
-            //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("HenryBombExplosion");
             bombImpactExplosion.timerAfterImpact = true;
             bombImpactExplosion.lifetimeAfterImpact = 0.1f;
 
@@ -200,9 +199,6 @@ namespace JinxMod.Modules
             return ghostPrefab;
         }
 
-        // Clones the vanilla missile ghost, scales it up, and widens its trail/flare.
-        // Newer RoR2 builds can leave ProjectileController.ghostPrefab null (ghost is referenced via Addressables instead),
-        // so resolve it defensively and skip the customization rather than crashing plugin Awake().
         private static void SetupScaledGhost(ProjectileController projectileController, string newGhostName, float ghostScale, float trailScale)
         {
             GameObject originalGhost = ResolveGhostPrefab(projectileController, "RoR2/Base/Common/MissileGhost.prefab");
@@ -232,7 +228,6 @@ namespace JinxMod.Modules
             if (flare) flare.localScale *= trailScale;
 
             projectileController.ghostPrefab = ghostPrefab;
-            // make sure the game doesn't load the vanilla ghost over ours via an addressable reference
             ClearGhostPrefabReference(projectileController);
         }
 
@@ -240,7 +235,6 @@ namespace JinxMod.Modules
         {
             if (projectileController.ghostPrefab) return projectileController.ghostPrefab;
 
-            // look for an AssetReference-style ghost field (name varies by game version), without a hard compile-time dependency
             foreach (var field in typeof(ProjectileController).GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic))
             {
                 if (!field.Name.ToLower().Contains("ghost")) continue;

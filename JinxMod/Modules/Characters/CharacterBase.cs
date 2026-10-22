@@ -18,7 +18,6 @@ namespace JinxMod.Modules.Characters
         public abstract Type characterMainState { get; }
         public virtual Type characterSpawnState { get; }
 
-        //public abstract ItemDisplaysBase itemDisplays { get; }
 
         public virtual GameObject bodyPrefab { get; set; }
         public virtual CharacterModel characterBodyModel { get; set; }
@@ -42,7 +41,6 @@ namespace JinxMod.Modules.Characters
             InitializeHurtboxes();
 
             InitializeSkins();
-            //InitializeItemDisplays();
 
             InitializeDoppelganger("Merc");
         }
@@ -92,20 +90,16 @@ namespace JinxMod.Modules.Characters
 
             characterBodyModel.itemDisplayRuleSet = itemDisplayRuleSet;
 
-            //if (itemDisplays != null)
             {
-                //RoR2.RoR2Application.onLoad += SetItemDisplays;
             }
         }
 
         public void SetItemDisplays()
         {
-            //itemDisplays.SetItemDIsplays(characterBodyModel.itemDisplayRuleSet);
         }
 
     }
 
-    // for simplifying characterbody creation
     internal class BodyInfo
     {
         #region Character
@@ -113,10 +107,8 @@ namespace JinxMod.Modules.Characters
         public string bodyNameToken = "";
         public string subtitleNameToken = "";
 
-        // body prefab you're cloning for your character- commando is the safest
         public string bodyNameToClone = "Commando";
 
-        // the color of your characters name and skills and such in the lobby
         public Color bodyColor = Color.white;
 
         public Texture characterPortrait = null;
@@ -128,28 +120,21 @@ namespace JinxMod.Modules.Characters
         #endregion Character
 
         #region Stats
-        //main stats
         public float maxHealth = 100f;
         public float healthRegen = 1f;
         public float armor = 0f;
-        public float shield = 0f; // base shield is a thing apparently. neat
+        public float shield = 0f;
 
         public int jumpCount = 1;
 
-        //conventional base stats, consistent for all survivors
         public float damage = 12f;
         public float attackSpeed = 1f;
         public float crit = 1f;
 
-        //misc stats
         public float moveSpeed = 7f;
         public float acceleration = 80f;
         public float jumpPower = 15f;
 
-        //stat growth
-        /// <summary>
-        /// Leave this alone, and you don't need to worry about setting any of the stat growth values. They'll be set at the consistent ratio that all vanilla survivors have.
-        /// </summary>
         public bool autoCalculateLevelStats = true;
 
         public float healthGrowth = 30f;
@@ -162,20 +147,17 @@ namespace JinxMod.Modules.Characters
         public float critGrowth = 0f;
 
         public float moveSpeedGrowth = 0f;
-        public float jumpPowerGrowth = 0f;// jump power per level exists for some reason
+        public float jumpPowerGrowth = 0f;
         #endregion Stats
 
         #region Camera
         public Vector3 aimOriginPosition = new Vector3(0f, 1.6f, 0f);
         public Vector3 modelBasePosition = new Vector3(0f, -0.92f, 0f);
        
-        //basically the "height" of your camera
         public Vector3 cameraPivotPosition = new Vector3(0f, 0.8f, 0f);
 
-        //how far relative to the pivot is your camera's center 
         public float cameraParamsVerticalOffset = 1.37f;
 
-        //large characters like loader are -12. for smaller characters like commando go for -10 maybe -9
         public float cameraParamsDepth = -10;
 
         private CharacterCameraParams _cameraParams;

@@ -6,13 +6,9 @@ using JinxMod.Modules.Characters;
 using JinxMod.Controller;
 
 namespace JinxMod.Modules {
-    // module for creating body prefabs and whatnot
-    // recommended to simply avoid touching this unless you REALLY need to
-    // oh boy do I need to
 
     internal static class Prefabs
     {
-        // cache this just to give our ragdolls the same physic material as vanilla stuff
         private static PhysicMaterial ragdollMaterial;
 
         public static GameObject CreateDisplayPrefab(string displayModelName, GameObject prefab, BodyInfo bodyInfo)
@@ -53,7 +49,6 @@ namespace JinxMod.Modules {
 
             #region CharacterBody
             CharacterBody bodyComponent = newBodyPrefab.GetComponent<CharacterBody>();
-            //identity
             bodyComponent.name = bodyInfo.bodyName;
             bodyComponent.baseNameToken = bodyInfo.bodyNameToken;
             bodyComponent.subtitleNameToken = bodyInfo.subtitleNameToken;
@@ -64,7 +59,6 @@ namespace JinxMod.Modules {
             bodyComponent.hideCrosshair = false;
             bodyComponent.preferredPodPrefab = bodyInfo.podPrefab;
 
-            //stats
             bodyComponent.baseMaxHealth = bodyInfo.maxHealth;
             bodyComponent.baseRegen = bodyInfo.healthRegen;
             bodyComponent.levelArmor = bodyInfo.armorGrowth;
@@ -77,7 +71,6 @@ namespace JinxMod.Modules {
             bodyComponent.baseMoveSpeed = bodyInfo.moveSpeed;
             bodyComponent.baseJumpPower = bodyInfo.jumpPower;
 
-            //level stats
             bodyComponent.autoCalculateLevelStats = bodyInfo.autoCalculateLevelStats;
 
             bodyComponent.levelDamage = bodyInfo.damageGrowth;
@@ -92,7 +85,6 @@ namespace JinxMod.Modules {
             bodyComponent.levelMoveSpeed = bodyInfo.moveSpeedGrowth;
             bodyComponent.levelJumpPower = bodyInfo.jumpPowerGrowth;
 
-            //other
             bodyComponent.baseAcceleration = bodyInfo.acceleration;
 
             bodyComponent.baseJumpCount = bodyInfo.jumpCount;
@@ -110,7 +102,6 @@ namespace JinxMod.Modules {
 
             SetupCameraTargetParams(newBodyPrefab, bodyInfo);
             SetupModelLocator(newBodyPrefab, modelBaseTransform, model.transform);
-            //SetupRigidbody(newPrefab);
             SetupCapsuleCollider(newBodyPrefab);
             SetupMainHurtbox(newBodyPrefab, model);
 
@@ -256,7 +247,6 @@ namespace JinxMod.Modules {
             CameraTargetParams cameraTargetParams = prefab.GetComponent<CameraTargetParams>();
             cameraTargetParams.cameraParams = bodyInfo.cameraParams;
             cameraTargetParams.cameraPivotTransform = prefab.transform.Find("CameraPivot");
-            //cameraTargetParams.aimMode = CameraTargetParams.AimType.Standard;
         }
 
         private static void SetupModelLocator(GameObject prefab, Transform modelBaseTransform, Transform modelTransform)
@@ -266,11 +256,6 @@ namespace JinxMod.Modules {
             modelLocator.modelBaseTransform = modelBaseTransform;
         }
 
-        //private static void SetupRigidbody(GameObject prefab)
-        //{
-        //    Rigidbody rigidbody = prefab.GetComponent<Rigidbody>();
-        //    rigidbody.mass = 100f;
-        //}
 
         private static void SetupCapsuleCollider(GameObject prefab) {
             CapsuleCollider capsuleCollider = prefab.GetComponent<CapsuleCollider>();
@@ -325,10 +310,8 @@ namespace JinxMod.Modules {
             FootstepHandler footstepHandler = model.AddComponent<FootstepHandler>();
             footstepHandler.baseFootstepString = "Play_player_footstep";
             footstepHandler.sprintFootstepOverrideString = "";
-            // LegacyResourcesAPI "Prefabs/GenericFootstepDust" returns null on current RoR2 builds; load via Addressables instead
             GameObject footstepDust = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/GenericFootstepDust.prefab").WaitForCompletion();
             footstepHandler.footstepDustPrefab = footstepDust;
-            // FootstepHandler.Start() instantiates this prefab unconditionally when enabled, so only enable it if it actually loaded
             footstepHandler.enableFootstepDust = footstepDust != null;
         }
 
@@ -404,16 +387,11 @@ namespace JinxMod.Modules {
         #endregion ComponentSetup
     }
 
-    // for simplifying rendererinfo creation
     public class CustomRendererInfo
     {
-        //the childname according to how it's set upin your childlocator
         public string childName;
-        //the material to use. pass in null to use the material in the bundle
         public Material material = null;
-        //don't set the hopoo shader on the material, and simply use the material from your prefab, unchanged
         public bool dontHotpoo = false;
-        //ignores shields and other overlays. use if you're not using a hopoo shader
         public bool ignoreOverlays = false;
     }
 }

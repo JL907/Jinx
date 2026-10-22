@@ -144,7 +144,6 @@ where TDelegate : Delegate
         Func<string> GetUnlocked { get; }
     }
 
-    //fuck your internal i'm a slut
     public abstract class ModdedUnlockable : BaseAchievement, IModdedUnlockableDataProvider
     {
         #region Implementation

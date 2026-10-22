@@ -12,7 +12,6 @@ namespace JinxMod.Modules
 {
     internal static class Assets
     {
-        // the assetbundle to load assets from
         internal static AssetBundle mainAssetBundle;
 
         internal static GameObject bombExplosionEffect;
@@ -23,9 +22,7 @@ namespace JinxMod.Modules
 
         internal static GameObject chargeEffect;
 
-        // particle effects
 
-        // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
 
         internal static NetworkSoundEventDef explosionHitSoundEvent;
@@ -33,14 +30,11 @@ namespace JinxMod.Modules
         internal static NetworkSoundEventDef bulletHitSoundEvent;
 
 
-        // cache these and use to create our own materials
         internal static Shader hotpoo = RoR2.LegacyResourcesAPI.Load<Shader>("Shaders/Deferred/HGStandard");
         internal static Material commandoMat;
         private static string[] assetNames = new string[0];
 
-        // CHANGE THIS
         private const string assetbundleName = "jinx";
-        //change this to your project's name if/when you've renamed it
         private const string csProjName = "JinxMod.";
 
         internal static void Initialize()

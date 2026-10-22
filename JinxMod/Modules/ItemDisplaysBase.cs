@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 namespace JinxMod.Modules.Characters {
     public abstract class ItemDisplaysBase {
-        /// <summary>
-        /// override and set to true to print in the console any item displays you haven't set on your character
-        /// </summary>
         public virtual bool printUnused { get; }
 
         public void SetItemDIsplays(ItemDisplayRuleSet itemDisplayRuleSet) {

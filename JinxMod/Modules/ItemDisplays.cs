@@ -14,10 +14,8 @@ namespace JinxMod.Modules
 
         internal static void PopulateDisplays()
         {
-            //PopulateFromBody("CommandoBody");
-            //PopulateFromBody("CrocoBody");
             PopulateFromBody("MageBody");
-            PopulateFromBody("LunarExploderBody"); //solely for the perfected crown
+            PopulateFromBody("LunarExploderBody");
         }
 
         private static void PopulateFromBody(string bodyName)
@@ -62,11 +60,6 @@ namespace JinxMod.Modules
                     GameObject display = itemDisplayPrefabs[name.ToLowerInvariant()];
 
                     #region IgnoreThisAndRunAway
-                    //seriously you don't need this
-                    //I see you're still here, well if you do need this here's what you do
-                    //but again you don't need this
-                    //capacitor is hardcoded to track your "UpperArmR", "LowerArmR", and "HandR" bones.
-                    //this is for having the lightning on custom bones in your childlocator
                     if (name == "DisplayLightningArmCustom") {
                         display = R2API.PrefabAPI.InstantiateClone(itemDisplayPrefabs["DisplayLightningArmRight"], "DisplayLightningCustom", false);
 
@@ -105,7 +98,6 @@ namespace JinxMod.Modules
             }
             Debug.LogWarning(no);
 
-            //resetUnused();
         }
 
         private static void resetUnused() {

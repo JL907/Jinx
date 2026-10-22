@@ -15,7 +15,6 @@ namespace JinxMod.Modules.Survivors
         public override string bodyName => "Jinx";
 
         public const string JINX_PREFIX = JinxPlugin.DEVELOPER_PREFIX + "_JINX_BODY_";
-        //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => JINX_PREFIX;
 
         public static SkillDef fishBonesSkillDef;
@@ -66,10 +65,8 @@ namespace JinxMod.Modules.Survivors
 
         public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
 
-        //public override ItemDisplaysBase itemDisplays => new JinxItemDisplays();
 
-                                                                          //if you have more than one character, easily create a config to enable/disable them like this
-        public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
+        public override ConfigEntry<bool> characterEnabledConfig => null;
 
         private static UnlockableDef masterySkinUnlockableDef;
 
@@ -85,8 +82,6 @@ namespace JinxMod.Modules.Survivors
 
         public override void InitializeUnlockables()
         {
-            //uncomment this when you have a mastery skin. when you do, make sure you have an icon too
-            //masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>();
         }
 
         public override void InitializeHitboxes()
@@ -94,9 +89,6 @@ namespace JinxMod.Modules.Survivors
             ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
             GameObject model = childLocator.gameObject;
 
-            //example of how to create a hitbox
-            //Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
-            //Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
         }
 
         public override void InitializeSkills()
@@ -106,7 +98,6 @@ namespace JinxMod.Modules.Survivors
             string prefix = JinxPlugin.DEVELOPER_PREFIX;
 
             #region Primary
-            //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
                 (prefix + "_JINX_BODY_PRIMARY_POWPOW_NAME",
                 prefix + "_JINX_BODY_PRIMARY_POWPOW_DESCRIPTION",
@@ -238,63 +229,12 @@ namespace JinxMod.Modules.Survivors
 
             defaultSkin.meshReplacements = new SkinDef.MeshReplacement[]
             {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                //new SkinDef.MeshReplacement
-                //{
-                //    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshJinxSword"),
-                //    renderer = defaultRenderers[0].renderer
-                //},
-                //new SkinDef.MeshReplacement
-                //{
-                //    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshJinxGun"),
-                //    renderer = defaultRenderers[1].renderer
-                //},
-                //new SkinDef.MeshReplacement
-                //{
-                //    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshJinx"),
-                //    renderer = defaultRenderers[2].renderer
-                //}
             };
 
             skins.Add(defaultSkin);
             #endregion
 
-            //uncomment this when you have a mastery skin
             #region MasterySkin
-            /*
-            Material masteryMat = Modules.Materials.CreateHopooMaterial("matJinxAlt");
-            CharacterModel.RendererInfo[] masteryRendererInfos = SkinRendererInfos(defaultRenderers, new Material[]
-            {
-                masteryMat,
-                masteryMat,
-                masteryMat,
-                masteryMat
-            });
-
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(JinxPlugin.DEVELOPER_PREFIX + "_JINX_BODY_MASTERY_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
-                masteryRendererInfos,
-                mainRenderer,
-                model,
-                masterySkinUnlockableDef);
-
-            masterySkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshJinxSwordAlt"),
-                    renderer = defaultRenderers[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshJinxAlt"),
-                    renderer = defaultRenderers[2].renderer
-                }
-            };
-
-            skins.Add(masterySkin);
-            */
             #endregion
 
             skinController.skins = skins.ToArray();

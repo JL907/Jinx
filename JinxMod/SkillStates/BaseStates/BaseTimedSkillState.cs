@@ -3,14 +3,10 @@ using System;
 
 namespace JinxMod.SkillStates.BaseStates
 {
-    //see example skills below
     public class BaseTimedSkillState : BaseSkillState
     {
-        //total duration of the move
         public static float TimedBaseDuration;
 
-        //time relative to duration that the skill starts
-        //for example, set 0.5 and the "cast" will happen halfway through the skill
         public static float TimedBaseCastStartTime;
         public static float TimedBaseCastEndTime;
 
@@ -21,7 +17,6 @@ namespace JinxMod.SkillStates.BaseStates
         protected bool isFiring;
         protected bool hasExited;
 
-        //initialize your time values here
         protected virtual void InitDurationValues(float baseDuration, float baseCastStartTime, float baseCastEndTime = 1)
         {
             TimedBaseDuration = baseDuration;
@@ -42,7 +37,6 @@ namespace JinxMod.SkillStates.BaseStates
         {
             base.FixedUpdate();
 
-            //wait start duration and fire
             if(!hasFired && fixedAge > castStartTime)
             {
                 hasFired = true;
@@ -53,7 +47,6 @@ namespace JinxMod.SkillStates.BaseStates
             bool fireEnded = fixedAge >= castEndTime;
             isFiring = false;
 
-            //to guarantee attack comes out if at high attack speed the fixedage skips past the endtime
             if ((fireStarted && !fireEnded) || (fireStarted && fireEnded && !this.hasFired))
             {
                 isFiring = true;
@@ -98,17 +91,14 @@ namespace JinxMod.SkillStates.BaseStates
 
         protected override void OnCastEnter()
         {
-            //perform my skill after 0.3 seconds of windup
         }
 
         protected override void OnCastFixedUpdate()
         {
-            //perform some continuous action after the windup, which will end .15 seconds before the full duration
         }
 
         protected override void OnCastExit()
         {
-            //probably play an animation at the end of the action
         }
     }
 
@@ -126,7 +116,6 @@ namespace JinxMod.SkillStates.BaseStates
 
         protected override void OnCastEnter()
         {
-            //perform my skill after 0.3 seconds of windup
         }
     }
 }

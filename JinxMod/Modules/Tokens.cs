@@ -7,13 +7,6 @@ namespace JinxMod.Modules
 {
     internal static class Tokens
     {
-        //<color=#c9aa71> tan
-        //<color=#ffffff> white
-        //<color=#f68835> orange
-        //<color=#d62d20> red
-        //<color=#AF1AAF> purple
-        //<color=#F5EE99> yellow
-        //<color=#1F995C> green
         internal static void AddTokens()
         {
             #region Jinx

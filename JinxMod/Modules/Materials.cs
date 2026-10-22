@@ -36,7 +36,6 @@ namespace JinxMod.Modules
             float? bumpScale = null;
             Color? emissionColor = null;
 
-            //grab values before the shader changes
             if (tempMat.IsKeywordEnabled("_NORMALMAP"))
             {
                 bumpScale = tempMat.GetFloat("_BumpScale");
@@ -46,10 +45,8 @@ namespace JinxMod.Modules
                 emissionColor = tempMat.GetColor("_EmissionColor");
             }
 
-            //set shader
             tempMat.shader = Assets.hotpoo;
 
-            //apply values after shader is set
             tempMat.SetColor("_Color", tempMat.GetColor("_Color"));
             tempMat.SetTexture("_MainTex", tempMat.GetTexture("_MainTex"));
             tempMat.SetTexture("_EmTex", tempMat.GetTexture("_EmissionMap"));
@@ -65,13 +62,10 @@ namespace JinxMod.Modules
                 tempMat.SetFloat("_EmPower", 1);
             }
 
-            //set this keyword in unity if you want your model to show backfaces
-            //in unity, right click the inspector tab and choose Debug
             if (tempMat.IsKeywordEnabled("NOCULL"))
             {
                 tempMat.SetInt("_Cull", 0);
             }
-            //set this keyword in unity if you've set up your model for limb removal item displays (eg. goat hoof) by setting your model's vertex colors
             if (tempMat.IsKeywordEnabled("LIMBREMOVAL"))
             {
                 tempMat.SetInt("_LimbRemovalOn", 1);
@@ -81,10 +75,6 @@ namespace JinxMod.Modules
             return tempMat;
         }
 
-        /// <summary>
-        /// Makes this a unique material if we already have this material cached (i.e. you want an altered version). New material will not be cached
-        /// <para>If it was not cached in the first place, simply returns as it is already unique.</para>
-        /// </summary>
         public static Material MakeUnique(this Material material)
         {
 

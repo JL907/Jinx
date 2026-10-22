@@ -17,7 +17,6 @@ namespace JinxMod.Modules
 
         }
 
-        // simple helper method
         internal static BuffDef AddNewBuff(string buffName, Sprite buffIcon, Color buffColor, bool canStack, bool isDebuff)
         {
             BuffDef buffDef = ScriptableObject.CreateInstance<BuffDef>();

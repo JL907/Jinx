@@ -45,8 +45,6 @@ namespace JinxMod.Modules
             skinDef.nameToken = skinDefInfo.NameToken;
             skinDef.name = skinDefInfo.Name;
 
-            // Current RoR2 reads skin data from SkinDefParams; the legacy fields above are obsolete.
-            // Fill both so the skin applies on new builds without needing SeekersPatcher.
             SkinDefParams skinParams = ScriptableObject.CreateInstance<SkinDefParams>();
             skinParams.name = skinDefInfo.Name + "Params";
             skinParams.rendererInfos = skinDefInfo.RendererInfos;
@@ -99,18 +97,6 @@ namespace JinxMod.Modules
 
             return newRendererInfos;
         }
-        /// <summary>
-        /// pass in strings for mesh assets in your project. pass the same amount and order as you have renderers, filling with null as needed
-        /// <code>
-        /// myskindef.meshReplacements = Modules.Skins.getMeshReplacements(defaultRenderers,
-        ///    "meshJinxSword",
-        ///    null,
-        ///    "meshJinx");
-        /// </code>
-        /// </summary>
-        /// <param name="rendererinfos">your skindef's rendererinfos to access the renderers</param>
-        /// <param name="meshes">name of the mesh assets in your project</param>
-        /// <returns></returns>
         internal static SkinDef.MeshReplacement[] getMeshReplacements(CharacterModel.RendererInfo[] rendererinfos, params string[] meshes)
         {
 

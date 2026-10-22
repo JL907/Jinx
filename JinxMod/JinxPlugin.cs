@@ -26,20 +26,15 @@ namespace JinxMod
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.recalculatestats", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.damagetype", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("bubbet.networkedtimedbuffs", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
 
     public class JinxPlugin : BaseUnityPlugin
     {
-        // if you don't change these you're giving permission to deprecate the mod-
-        //  please change the names to your own stuff, thanks
-        //   this shouldn't even have to be said
         public const string MODUID = "com.Lemonlust.JinxMod";
         public const string MODNAME = "JinxMod";
-        public const string MODVERSION = "1.4.3";
+        public const string MODVERSION = "1.4.4";
 
-        // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "Lemonlust";
 
         public static JinxPlugin instance;
@@ -52,19 +47,17 @@ namespace JinxMod
             {
                 jinxDamage = DamageAPI.ReserveDamageType();
                 Log.Init(Logger);
-                Modules.Assets.Initialize(); // load assets and read config
+                Modules.Assets.Initialize();
                 Modules.Config.ReadConfig();
-                Modules.States.RegisterStates(); // register states for networking
-                Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
-                Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
-                Modules.Tokens.AddTokens(); // register name tokens
-                //Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
+                Modules.States.RegisterStates();
+                Modules.Buffs.RegisterBuffs();
+                Modules.Projectiles.RegisterProjectiles();
+                Modules.Tokens.AddTokens();
                 NetworkingAPI.RegisterMessageType<RefreshStacksMessage>();
+                NetworkingAPI.RegisterMessageType<SyncBuffTimersMessage>();
 
-                // survivor initialization
                 new MyCharacter().Initialize();
 
-                // now make a content pack and add it- this part will change with the next update
                 new Modules.ContentPacks().Initialize();
 
                 Hook();
@@ -81,6 +74,7 @@ namespace JinxMod
         {
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+            JinxMod.Controllers.RocketJumpFallProtection.Hook();
 
         }
 

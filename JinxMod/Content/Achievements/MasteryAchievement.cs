@@ -8,7 +8,6 @@
 
         public override string RequiredCharacterBody => "JinxBody";
 
-        //difficulty coeff 3 is monsoon. 3.5 is typhoon for grandmastery skins
         public override float RequiredDifficultyCoefficient => 3;
     }
 }

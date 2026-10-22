@@ -1,6 +1,6 @@
 ﻿{
     "name": "JinxMod",
-    "version_number": "1.4.3",
+    "version_number": "1.4.4",
     "website_url": "https://github.com/JL907/Jinx",
     "description": "Jinx? Stands for Jinx! Durr.",
     "dependencies": [
@@ -13,6 +13,7 @@
         "RiskofThunder-R2API_Networking-1.0.4",
         "RiskofThunder-R2API_RecalculateStats-1.6.6",
         "RiskofThunder-R2API_DamageType-1.1.7",
-        "RiskofThunder-RoR2BepInExPack-1.46.0"
+        "RiskofThunder-RoR2BepInExPack-1.46.0",
+        "Lemonlust-Runes-1.0.0"
     ]
 }

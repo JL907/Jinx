@@ -1,10 +1,4 @@
-﻿using BepInEx.Bootstrap;
-using NetworkedTimedBuffs;
-using R2API.Networking;
-using R2API.Networking.Interfaces;
-using RoR2;
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using RoR2;
 
 namespace JinxMod
 {
@@ -22,8 +16,6 @@ namespace JinxMod
 				if (timedBuff.timer < duration * amount)
 				{
 					timedBuff.timer = duration * amount;
-					if (Chainloader.PluginInfos.ContainsKey("bubbet.networkedtimedbuffs"))
-						NetworkBuffTimer(body, i, timedBuff.timer);
 				}
 			}
 			if (setToMax)
@@ -33,6 +25,7 @@ namespace JinxMod
 					body.AddTimedBuff(BuffCatalog.GetBuffDef(index), duration * (i + 1), maxStacks);
 				}
 
+				BuffTimerSync.Send(body, index);
 				return;
 			}
 
@@ -40,14 +33,8 @@ namespace JinxMod
 			{
 				body.AddTimedBuff(BuffCatalog.GetBuffDef(index), duration * (amount + 1), maxStacks);
 			}
-		}
 
-		public static void NetworkBuffTimer(CharacterBody body, int index, float duration)
-		{
-			// private static void UpdateTimer(CharacterBody body, int index, float duration) why the fuck did i make this method private; time to copy paste its body
-			if (!NetworkServer.active) return;
-			if (!body.isPlayerControlled && NetworkedTimedBuffsPlugin.onlySyncPlayers.Value) return;
-			new SyncTimedBuffUpdate(body.networkIdentity.netId, index, duration).Send(NetworkDestination.Clients);
+			BuffTimerSync.Send(body, index);
 		}
 	}
 }

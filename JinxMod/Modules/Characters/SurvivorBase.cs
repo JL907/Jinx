@@ -106,10 +106,8 @@ namespace JinxMod.Modules.Survivors
             if (!CSSPreviewDisplayConroller)
                 return;
 
-            //set body prefab
             CSSPreviewDisplayConroller.bodyPrefab = bodyPrefab;
 
-            //clear list of null entries
             List<CharacterSelectSurvivorPreviewDisplayController.SkillChangeResponse> newlist = new List<CharacterSelectSurvivorPreviewDisplayController.SkillChangeResponse>();
 
             for (int i = 0; i < CSSPreviewDisplayConroller.skillChangeResponses.Length; i++)

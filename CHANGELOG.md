@@ -1,3 +1,10 @@
+`1.4.4`
+* Added Lemonlust Runes as a dependency
+* Jinx is now protected from fall damage after rocket jumping until she lands, instead of for 10 seconds
+* Rocket jump fall damage protection now also works with Artifact of Frailty
+* Removed the NetworkedTimedBuffs dependency; Rev'd Up and Get Excited! buff timers are now synced by JinxMod itself
+* Code cleanup
+
 `1.4.0`
 * Reduced Rev'd up buff attack speed to 18% down from 30% per stack
 * Increased Fishbones projectile speed

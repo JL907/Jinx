@@ -57,7 +57,6 @@ namespace JinxMod.Modules
 
         #region skillfamilies
 
-        //everything calls this
         public static void AddSkillToFamily(SkillFamily skillFamily, SkillDef skillDef, UnlockableDef unlockableDef = null)
         {
             Array.Resize(ref skillFamily.variants, skillFamily.variants.Length + 1);
@@ -95,12 +94,6 @@ namespace JinxMod.Modules
             AddSkillsToFamily(targetPrefab.GetComponent<SkillLocator>().special.skillFamily, skillDefs);
         }
 
-        /// <summary>
-        /// pass in an amount of unlockables equal to or less than skill variants, null for skills that aren't locked
-        /// <code>
-        /// AddUnlockablesToFamily(skillLocator.primary, null, skill2UnlockableDef, null, skill4UnlockableDef);
-        /// </code>
-        /// </summary>
         public static void AddUnlockablesToFamily(SkillFamily skillFamily, params UnlockableDef[] unlockableDefs)
         {
             for (int i = 0; i < unlockableDefs.Length; i++)
@@ -120,7 +113,6 @@ namespace JinxMod.Modules
 
         public static T CreateSkillDef<T>(SkillDefInfo skillDefInfo) where T : SkillDef
         {
-            //pass in a type for a custom skilldef, e.g. HuntressTrackingSkillDef
             T skillDef = ScriptableObject.CreateInstance<T>();
 
             skillDef.skillName = skillDefInfo.skillName;
@@ -156,9 +148,6 @@ namespace JinxMod.Modules
         #endregion skilldefs
     }
 
-    /// <summary>
-    /// class for easily creating skilldefs with default values, and with a field for UnlockableDef
-    /// </summary>
     internal class SkillDefInfo
     {
         public string skillName;
@@ -190,10 +179,6 @@ namespace JinxMod.Modules
 
         #region constructors
         public SkillDefInfo() { }
-        /// <summary>
-        /// Creates a skilldef for a typical primary.
-        /// <para>combat skill, cooldown: 0, required stock: 0, InterruptPriority: Any</para>
-        /// </summary>
         public SkillDefInfo(string skillNameToken,
                             string skillDescriptionToken,
                             Sprite skillIcon,

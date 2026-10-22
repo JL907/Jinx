@@ -82,7 +82,7 @@ namespace JinxMod.Controllers
                 CharacterBody characterBody = collision.GetComponent<CharacterBody>();
                 if (this.owner.characterBody == characterBody && characterBody && characterBody?.bodyIndex == BodyCatalog.FindBodyIndex("JinxBody"))
                 {
-                    this.owner.characterBody.AddTimedBuff(JunkContent.Buffs.IgnoreFallDamage, 10f, 1);
+                    if (Modules.Config.rocketJump.Value) RocketJumpFallProtection.Grant(this.owner.characterBody);
                     AddExplosionForce(characterBody, explosionForce, projectileImpactInfo.estimatedPointOfImpact, explosionRadius, 0f);
                 }
             }

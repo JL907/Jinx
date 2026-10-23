@@ -1,6 +1,5 @@
 ﻿using BepInEx.Configuration;
 using System;
-using UnityEngine;
 
 namespace JinxMod.Modules
 {
@@ -19,8 +18,6 @@ namespace JinxMod.Modules
         public static ConfigEntry<float> bonusHealthCoefficient;
         public static ConfigEntry<float> healthGrowth;
         public static ConfigEntry<int> jumpCount;
-
-
 
         public static ConfigEntry<float> damageGrowth;
         public static ConfigEntry<float> regenGrowth;
@@ -81,12 +78,9 @@ namespace JinxMod.Modules
             megaRocketDamageCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("04 - Mega Rocket", "Mega Rocket Damage Coefficient"), 13.5f, new ConfigDescription("", null, Array.Empty<object>()));
             megaRocketProcCoefficient = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("04 - Mega Rocket", "Mega Rocket Proc Coefficient"), 1f, new ConfigDescription("", null, Array.Empty<object>()));
             megaRocketCD = JinxPlugin.instance.Config.Bind<float>(new ConfigDefinition("04 - Mega Rocket", "Mega Rocket CD"), 10f, new ConfigDescription("", null, Array.Empty<object>()));
-
-
         }
 
         public static ConfigEntry<bool> CharacterEnableConfig(string characterName, string description = "Set to false to disable this character", bool enabledDefault = true) {
-
             return JinxPlugin.instance.Config.Bind<bool>("General",
                                                           "Enable " + characterName,
                                                           enabledDefault,

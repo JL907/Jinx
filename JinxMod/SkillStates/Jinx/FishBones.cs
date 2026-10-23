@@ -1,7 +1,6 @@
 ﻿using EntityStates;
 using EntityStates.Commando.CommandoWeapon;
 using JinxMod.Controller;
-using R2API;
 using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
@@ -39,11 +38,11 @@ namespace JinxMod.SkillStates
                 this.rocketController.attacks++;
             }
 
-            if (this.animator.GetBool("isMoving") || (!(this.animator.GetBool("isGrounded"))))
+            if (this.animator.GetBool("isMoving") || !this.animator.GetBool("isGrounded"))
             {
                 base.PlayAnimation("Gesture, Override", "fishbonesattack");
             }
-            else if ((!(this.animator.GetBool("isMoving"))) && this.animator.GetBool("isGrounded"))
+            else if (!this.animator.GetBool("isMoving") && this.animator.GetBool("isGrounded"))
             {
                 base.PlayAnimation("FullBody, Override", "fishbonesattack");
             }
@@ -56,7 +55,6 @@ namespace JinxMod.SkillStates
                     BuffTimerSync.Send(base.characterBody, Modules.Buffs.revdUp.buffIndex);
                 }
             }
-
         }
 
         public override void OnExit()
@@ -94,11 +92,11 @@ namespace JinxMod.SkillStates
                 else
                 {
                     Inventory inventory = base.characterBody.inventory;
-                    num = ((inventory != null) ? new int?(inventory.GetItemCount(DLC1Content.Items.MoreMissile)) : null);
+                    num = inventory != null ? new int?(inventory.GetItemCount(DLC1Content.Items.MoreMissile)) : null;
                 }
                 InputBankTest component = base.characterBody.GetComponent<InputBankTest>();
                 int num2 = num ?? 0;
-                float num3 = Mathf.Max(1f, 1f + 0.5f * (float)(num2 - 1));
+                float num3 = Mathf.Max(1f, 1f + 0.5f * (num2 - 1));
                 FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                 {
                     projectilePrefab = projectilePrefab,
@@ -107,7 +105,7 @@ namespace JinxMod.SkillStates
                     procChainMask = default(ProcChainMask),
                     target = null,
                     owner = this.characterBody.gameObject,
-                    damage = (this.characterBody.damage * FishBones.damageCoefficient) * num3,
+                    damage = this.characterBody.damage * FishBones.damageCoefficient * num3,
                     crit = isCrit,
                     force = 600f,
                     damageColorIndex = DamageColorIndex.Default

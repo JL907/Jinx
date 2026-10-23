@@ -48,11 +48,8 @@ namespace JinxMod.Modules
         }
 
         public static GameObject LoadDisplay(string name) {
-
             if (itemDisplayPrefabs.ContainsKey(name.ToLowerInvariant())) {
-
                 if (itemDisplayPrefabs[name.ToLowerInvariant()]) {
-
                     if (recording) {
                         itemDisplayCheckCount[name.ToLowerInvariant()]++;
                     }
@@ -83,7 +80,6 @@ namespace JinxMod.Modules
             recording = true;
         }
         public static void printUnused() {
-
             string yes = "used:";
             string no = "not used:";
 
@@ -97,7 +93,6 @@ namespace JinxMod.Modules
                 }
             }
             Debug.LogWarning(no);
-
         }
 
         private static void resetUnused() {
@@ -107,6 +102,5 @@ namespace JinxMod.Modules
             recording = false;
         }
         #endregion
-
     }
 }

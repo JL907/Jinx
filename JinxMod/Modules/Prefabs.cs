@@ -3,10 +3,8 @@ using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
 using JinxMod.Modules.Characters;
-using JinxMod.Controller;
 
 namespace JinxMod.Modules {
-
     internal static class Prefabs
     {
         private static PhysicMaterial ragdollMaterial;
@@ -126,10 +124,9 @@ namespace JinxMod.Modules {
 
         #region ModelSetup
 
-        private static Transform AddCharacterModelToSurvivorBody(GameObject bodyPrefab, Transform modelTransform, BodyInfo bodyInfo) 
+        private static Transform AddCharacterModelToSurvivorBody(GameObject bodyPrefab, Transform modelTransform, BodyInfo bodyInfo)
         {
             for (int i = bodyPrefab.transform.childCount - 1; i >= 0; i--) {
-
                 Object.DestroyImmediate(bodyPrefab.transform.GetChild(i).gameObject);
             }
 
@@ -157,7 +154,6 @@ namespace JinxMod.Modules {
         }
         public static CharacterModel SetupCharacterModel(GameObject prefab) => SetupCharacterModel(prefab, null);
         public static CharacterModel SetupCharacterModel(GameObject prefab, CustomRendererInfo[] customInfos) {
-
             CharacterModel characterModel = prefab.GetComponent<ModelLocator>().modelTransform.gameObject.GetComponent<CharacterModel>();
             bool preattached = characterModel != null;
             if (!preattached)
@@ -187,7 +183,6 @@ namespace JinxMod.Modules {
         }
 
         public static void SetupCustomRendererInfos(CharacterModel characterModel, CustomRendererInfo[] customInfos) {
-
             ChildLocator childLocator = characterModel.GetComponent<ChildLocator>();
             if (!childLocator) {
                 Log.Error("Failed CharacterModel setup: ChildLocator component does not exist on the model");
@@ -202,7 +197,6 @@ namespace JinxMod.Modules {
                 } else {
                     Renderer rend = childLocator.FindChild(customInfos[i].childName).GetComponent<Renderer>();
                     if (rend) {
-
                         Material mat = customInfos[i].material;
 
                         if (mat == null) {
@@ -256,7 +250,6 @@ namespace JinxMod.Modules {
             modelLocator.modelBaseTransform = modelBaseTransform;
         }
 
-
         private static void SetupCapsuleCollider(GameObject prefab) {
             CapsuleCollider capsuleCollider = prefab.GetComponent<CapsuleCollider>();
             capsuleCollider.center = new Vector3(0f, 0f, 0f);
@@ -294,7 +287,6 @@ namespace JinxMod.Modules {
         }
 
         public static void SetupHurtBoxes(GameObject bodyPrefab) {
-
             HealthComponent healthComponent = bodyPrefab.GetComponent<HealthComponent>();
 
             foreach (HurtBoxGroup hurtboxGroup in bodyPrefab.GetComponentsInChildren<HurtBoxGroup>()) {

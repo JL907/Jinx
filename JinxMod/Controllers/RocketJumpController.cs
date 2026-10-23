@@ -1,9 +1,5 @@
 ﻿using RoR2;
-using RoR2.Audio;
 using RoR2.Projectile;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
@@ -90,7 +86,7 @@ namespace JinxMod.Controllers
 
         private void AddExplosionForce(CharacterBody characterBody, float explosionForce, Vector3 explosionPosition, float explosionRadius, float upliftModifier = 0)
         {
-            var dir = (characterBody.corePosition - explosionPosition);
+            var dir = characterBody.corePosition - explosionPosition;
             float wearoff = 1 - (dir.magnitude / explosionRadius);
             Vector3 baseForce = dir.normalized * explosionForce * wearoff;
             if (Modules.Config.rocketJump.Value) characterBody.characterMotor.ApplyForce(baseForce);

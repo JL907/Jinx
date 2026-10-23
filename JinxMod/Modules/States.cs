@@ -1,7 +1,5 @@
 ﻿using JinxMod.SkillStates;
 using JinxMod.SkillStates.BaseStates;
-using System.Collections.Generic;
-using System;
 
 namespace JinxMod.Modules
 {

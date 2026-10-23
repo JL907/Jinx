@@ -2620,7 +2620,6 @@ localScale = new Vector3(0.1233F, 0.1233F, 0.1233F),
                 }
             });
             #endregion
-
         }
     }
 }

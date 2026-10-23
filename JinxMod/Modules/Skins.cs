@@ -1,5 +1,4 @@
-﻿using R2API;
-using RoR2;
+﻿using RoR2;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +7,28 @@ namespace JinxMod.Modules
 {
     internal static class Skins
     {
+        internal static SkinDef CreateSkinDef(SkinDefInfo skinDefInfo)
+        {
+            On.RoR2.SkinDef.Awake += DoNothing;
+
+            SkinDef skinDef = ScriptableObject.CreateInstance<RoR2.SkinDef>();
+            skinDef.baseSkins = skinDefInfo.BaseSkins;
+            skinDef.icon = skinDefInfo.Icon;
+            skinDef.unlockableDef = skinDefInfo.UnlockableDef;
+            skinDef.rootObject = skinDefInfo.RootObject;
+            skinDef.rendererInfos = skinDefInfo.RendererInfos;
+            skinDef.gameObjectActivations = skinDefInfo.GameObjectActivations;
+            skinDef.meshReplacements = skinDefInfo.MeshReplacements;
+            skinDef.projectileGhostReplacements = skinDefInfo.ProjectileGhostReplacements;
+            skinDef.minionSkinReplacements = skinDefInfo.MinionSkinReplacements;
+            skinDef.nameToken = skinDefInfo.NameToken;
+            skinDef.name = skinDefInfo.Name;
+
+            On.RoR2.SkinDef.Awake -= DoNothing;
+
+            return skinDef;
+        }
+
         internal static SkinDef CreateSkinDef(string skinName, Sprite skinIcon, CharacterModel.RendererInfo[] rendererInfos, SkinnedMeshRenderer mainRenderer, GameObject root)
         {
             return CreateSkinDef(skinName, skinIcon, rendererInfos, mainRenderer, root, null);
@@ -78,28 +99,8 @@ namespace JinxMod.Modules
             internal string Name;
         }
 
-        private static CharacterModel.RendererInfo[] getRendererMaterials(CharacterModel.RendererInfo[] defaultRenderers, params Material[] materials)
-        {
-            CharacterModel.RendererInfo[] newRendererInfos = new CharacterModel.RendererInfo[defaultRenderers.Length];
-            defaultRenderers.CopyTo(newRendererInfos, 0);
-
-            for (int i = 0; i < newRendererInfos.Length; i++)
-            {
-                try
-                {
-                    newRendererInfos[i].defaultMaterial = materials[i];
-                }
-                catch
-                {
-                    Log.Error("error adding skin rendererinfo material. make sure you're not passing in too many");
-                }
-            }
-
-            return newRendererInfos;
-        }
         internal static SkinDef.MeshReplacement[] getMeshReplacements(CharacterModel.RendererInfo[] rendererinfos, params string[] meshes)
         {
-
             List<SkinDef.MeshReplacement> meshReplacements = new List<SkinDef.MeshReplacement>();
 
             for (int i = 0; i < rendererinfos.Length; i++)

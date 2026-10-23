@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using RoR2;
 using System.IO;
-using System.Collections.Generic;
-using RoR2.UI;
-using System;
 
 namespace JinxMod.Modules
 {
@@ -22,29 +19,17 @@ namespace JinxMod.Modules
 
         internal static GameObject chargeEffect;
 
-
-        internal static NetworkSoundEventDef swordHitSoundEvent;
-
         internal static NetworkSoundEventDef explosionHitSoundEvent;
 
         internal static NetworkSoundEventDef bulletHitSoundEvent;
 
-
         internal static Shader hotpoo = RoR2.LegacyResourcesAPI.Load<Shader>("Shaders/Deferred/HGStandard");
-        internal static Material commandoMat;
         private static string[] assetNames = new string[0];
 
         private const string assetbundleName = "jinx";
-        private const string csProjName = "JinxMod.";
 
         internal static void Initialize()
         {
-            if (assetbundleName == "myassetbundle")
-            {
-                Log.Error("AssetBundle name hasn't been changed. not loading any assets to avoid conflicts");
-                return;
-            }
-
             LoadAssetBundle();
             LoadSoundbank();
             PopulateAssets();
@@ -53,7 +38,7 @@ namespace JinxMod.Modules
         internal static void LoadAssetBundle()
         {
             if (mainAssetBundle == null)
-            {                                                                                     
+            {
                 using (var assetStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("JinxMod." + assetbundleName))
                 {
                     mainAssetBundle = AssetBundle.LoadFromStream(assetStream);
@@ -61,7 +46,6 @@ namespace JinxMod.Modules
             }
 
             if(mainAssetBundle == null) {
-
                 Log.Error("Failed to load assetbundle. Make sure your assetbundle name is setup correctly");
                 return;
             }
@@ -70,7 +54,7 @@ namespace JinxMod.Modules
         }
 
         internal static void LoadSoundbank()
-        {                                                                                                   
+        {
             using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream("JinxMod.JinxBank.bnk"))
             {
                 byte[] array = new byte[manifestResourceStream2.Length];
@@ -180,7 +164,6 @@ namespace JinxMod.Modules
             return rendererInfos;
         }
 
-
         public static GameObject LoadSurvivorModel(string modelName) {
             GameObject model = mainAssetBundle.LoadAsset<GameObject>(modelName);
             if (model == null) {
@@ -202,19 +185,14 @@ namespace JinxMod.Modules
             return RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Crosshair/" + crosshairName + "Crosshair");
         }
 
-        private static GameObject LoadEffect(string resourceName)
-        {
-            return LoadEffect(resourceName, "", false);
-        }
-
         private static GameObject LoadEffect(string resourceName, string soundName)
         {
             return LoadEffect(resourceName, soundName, false);
         }
 
-        private static GameObject LoadEffect(string resourceName, bool parentToTransform)
+        private static GameObject LoadEffect(string resourceName)
         {
-            return LoadEffect(resourceName, "", parentToTransform);
+            return LoadEffect(resourceName, "", false);
         }
 
         private static GameObject LoadEffect(string resourceName, string soundName, bool parentToTransform)

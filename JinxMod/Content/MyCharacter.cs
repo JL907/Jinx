@@ -52,7 +52,7 @@ namespace JinxMod.Modules.Survivors
             sortPosition = 1f,
         };
 
-        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
+        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
                 {
@@ -65,16 +65,14 @@ namespace JinxMod.Modules.Survivors
 
         public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
 
-
         public override ConfigEntry<bool> characterEnabledConfig => null;
-
-        private static UnlockableDef masterySkinUnlockableDef;
 
         public override void InitializeCharacter()
         {
             if (!Modules.Config.enableCharacter.Value) return;
             base.InitializeCharacter();
             bodyPrefab.AddComponent<RocketController>();
+            bodyPrefab.GetComponentInChildren<ModelLocator>().modelTransform.gameObject.AddComponent<GestureAimCorrector>();
             displayPrefab.AddComponent<MenuController>();
             CharacterDeathBehavior characterDeathBehavior = bodyPrefab.GetComponent<CharacterDeathBehavior>();
             characterDeathBehavior.deathState = new SerializableEntityStateType(typeof(JinxMod.SkillStates.BaseStates.DeathState));
@@ -86,14 +84,10 @@ namespace JinxMod.Modules.Survivors
 
         public override void InitializeHitboxes()
         {
-            ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
-            GameObject model = childLocator.gameObject;
-
         }
 
         public override void InitializeSkills()
         {
-
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = JinxPlugin.DEVELOPER_PREFIX;
 
@@ -104,7 +98,7 @@ namespace JinxMod.Modules.Survivors
                 Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Pow-Pow"),
                 new EntityStates.SerializableEntityStateType(typeof(SkillStates.PowPow)),
                 "Weapon",
-                false));
+                true));
             ((ScriptableObject)primarySkillDef).name = "JinxPowPow";
             SkillDef fish = Modules.Skills.CreateSkillDef(new SkillDefInfo
                 (prefix + "_JINX_BODY_PRIMARY_FISHBONES_NAME",
@@ -215,6 +209,13 @@ namespace JinxMod.Modules.Survivors
             ChildLocator childLocator = model.GetComponent<ChildLocator>();
 
             SkinnedMeshRenderer mainRenderer = characterModel.mainSkinnedMeshRenderer;
+            if (!mainRenderer)
+            {
+                mainRenderer = childLocator.FindChild("Model").GetComponent<SkinnedMeshRenderer>();
+                characterModel.mainSkinnedMeshRenderer = mainRenderer;
+            }
+
+            List<LeagueSkins.BuiltLeagueSkin> leagueSkins = LeagueSkins.LeagueSkinBuilder.BuildAll(model, mainRenderer, characterModel, displayPrefab);
 
             CharacterModel.RendererInfo[] defaultRenderers = characterModel.baseRendererInfos;
 
@@ -236,6 +237,8 @@ namespace JinxMod.Modules.Survivors
 
             #region MasterySkin
             #endregion
+
+            LeagueSkins.LeagueSkinBuilder.AddSkins(skins, leagueSkins, model, mainRenderer, characterModel);
 
             skinController.skins = skins.ToArray();
         }

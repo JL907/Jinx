@@ -39,7 +39,7 @@ namespace JinxMod.Modules
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_POWPOW_NAME", "Pow-Pow");
             LanguageAPI.Add(prefix + "PRIMARY_POWPOW_DESCRIPTION",
-                "Basic attacks with Pow-Pow deal " + $"<color=#f68835>3x{100f * PowPow.damageCoefficient}% damage</color>" + " and generate a <color=#c9aa71>stack</color> of Rev'd up for 2.5 seconds, stacking up to 3 times, with the duration refreshing on subsequent attacks with Pow-Pow." + Environment.NewLine
+                "<style=cIsUtility>Agile.</style> Basic attacks with Pow-Pow deal " + $"<color=#f68835>3x{100f * PowPow.damageCoefficient}% damage</color>" + " and generate a <color=#c9aa71>stack</color> of Rev'd up for 2.5 seconds, stacking up to 3 times, with the duration refreshing on subsequent attacks with Pow-Pow." + Environment.NewLine
             + "Rev'd up grants <color=#f68835>18% bonus attack speed.</color>");
 
             LanguageAPI.Add(prefix + "PRIMARY_FISHBONES_NAME", "Fishbones");

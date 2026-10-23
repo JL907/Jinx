@@ -17,14 +17,12 @@
 ## Introduction
 A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care for the consequences. With an arsenal of deadly weapons, she unleashes the loudest blasts and brightest explosions to leave a trail of mayhem and panic in her wake. Jinx despises boredom and gleefully brings her own chaotic brand of pandemonium wherever she goes.
 
-## Latest Patch Notes `1.4.4`
+## Latest Patch Notes `1.5.0`
 `Bug reports can be posted in discord` https://discord.gg/aYuS9Wsxxx  
 
-* Added [Lemonlust Runes](https://thunderstore.io/c/riskofrain2/p/lemonlust/Runes/) as a dependency
-* Jinx is now protected from fall damage after rocket jumping until she lands, instead of for 10 seconds
-* Rocket jump fall damage protection now also works with Artifact of Frailty
-* Removed the NetworkedTimedBuffs dependency; Rev'd Up and Get Excited! buff timers are now synced by JinxMod itself
-* Code cleanup
+* Added 15 League of Legends skins: Crime City, Firecracker, Zombie Slayer, Star Guardian, Ambitious Elf, Odyssey, PROJECT, Heartseeker, Arcane Enemy, Battle Cat, Prestige Battle Cat, Cafe Cuties, Arcane Fractured, T1 and Ocean Song
+* Pow-Pow is now Agile
+* Jinx's upper body and weapon now face the aim direction when attacking while moving
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">

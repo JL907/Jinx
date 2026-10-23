@@ -77,7 +77,6 @@ namespace JinxMod.Modules
 
         public static Material MakeUnique(this Material material)
         {
-
             if (cachedMaterials.Contains(material))
             {
                 return new Material(material);

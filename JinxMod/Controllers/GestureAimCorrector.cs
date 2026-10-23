@@ -4,11 +4,6 @@ using UnityEngine;
 
 namespace JinxMod.Controller
 {
-    // Moving attacks play League's standing attack clips on the "Gesture, Override" layer over the run cycle.
-    // Those clips turn Jinx's whole body at the hips, so with the run's hips the upper body (and weapon) points
-    // sideways. While such a clip plays, this twists the spine (and the hip-mounted weapon bone) around the vertical
-    // axis so the weapon's muzzle matches the aim direction. Legs keep the run.
-    // Runs after the Animator and before LeagueRigDriver (10000), so League skins pick up the corrected pose.
     [DefaultExecutionOrder(9000)]
     public class GestureAimCorrector : MonoBehaviour
     {
@@ -21,7 +16,6 @@ namespace JinxMod.Controller
             internal int stateHash;
             internal Transform back;
             internal Transform muzzle;
-            // Bone to swing with the upper body when it is not under the spine (Minigun is under Pelvis, Pistol under L_Hip).
             internal Transform detached;
         }
 
@@ -95,8 +89,6 @@ namespace JinxMod.Controller
             float applied = yaw * weight;
             if (Mathf.Abs(applied) < 0.01f) return;
 
-            // Spread the twist over the spine; the chain sits on one vertical line, so the total equals a single
-            // rotation about Spine1's vertical axis.
             Vector3 pivot = spine[0].position;
             int count = 0;
             foreach (Transform s in spine) if (s) count++;

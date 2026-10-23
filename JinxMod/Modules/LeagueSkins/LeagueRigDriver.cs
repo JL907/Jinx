@@ -5,8 +5,6 @@ using UnityEngine;
 
 namespace JinxMod.Modules.LeagueSkins
 {
-    // Copies Jinx's animated bone rotations onto a League skin's own skeleton every frame.
-    // Joints are stored parent-first. Runs after the Animator and other LateUpdate bone tweaks (e.g. DynamicBone).
     [DefaultExecutionOrder(10000)]
     public class LeagueRigDriver : MonoBehaviour
     {
@@ -19,17 +17,14 @@ namespace JinxMod.Modules.LeagueSkins
         public Quaternion[] rotationOffsets;
         public Vector3[] positionOffsets;
         public bool[] pinned;
-        // Only drive while one of this skin's renderers is visible.
         public Renderer[] watch;
 
-        // Alternate bindings: driven joint index + weapon mode they apply in.
         public int[] altJoint;
         public int[] altMode;
         public Transform[] altBones;
         public Quaternion[] altRotationOffsets;
         public Vector3[] altPositionOffsets;
 
-        // Mode-only parts: scaled to one in their mode, zero otherwise.
         public Transform[] toggles;
         public int[] toggleModes;
 

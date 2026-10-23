@@ -4,7 +4,6 @@ namespace JinxMod.Modules.LeagueSkins
 {
     internal static class LeagueSkinCatalog
     {
-        // Recall/emote props and VFX meshes that only make sense with League's own animations/shaders.
         private static readonly string[] EmoteProps = { "Recall", "Emote" };
 
         private static LeagueSkinDefinition Skin(int id, string displayName, string defaultTexture, Dictionary<string, string> partTextures, params string[] hiddenParts)
@@ -26,8 +25,6 @@ namespace JinxMod.Modules.LeagueSkins
             };
         }
 
-        // Use the skin's own skeleton, driven by Jinx's animated bones (for skins whose rig differs from base Jinx).
-        // jointPairs: skin joint, Unity bone to follow, ... for joints the base rig lacks.
         private static LeagueSkinDefinition Retarget(LeagueSkinDefinition definition, params string[] jointPairs)
         {
             definition.retarget = true;
@@ -35,8 +32,6 @@ namespace JinxMod.Modules.LeagueSkins
             return definition;
         }
 
-        // In a weapon mode (LeagueRigDriver.ModeRocket / ModeZap), move `joint` onto Jinx's `bone`, rotated so the
-        // skin's +Z/+Y (League space) point along `forward`/`up`, with skin joint `skinAnchor` on base joint `baseAnchor`.
         private static LeagueSkinDefinition Mode(LeagueSkinDefinition definition, int mode, string joint, string bone, string skinAnchor, string baseAnchor, UnityEngine.Vector3 forward, UnityEngine.Vector3 up)
         {
             definition.modeBindings.Add(new LeagueModeBinding
@@ -51,7 +46,6 @@ namespace JinxMod.Modules.LeagueSkins
             return definition;
         }
 
-        // Show a part only in one weapon mode.
         private static LeagueSkinDefinition ModePart(LeagueSkinDefinition definition, int mode, params string[] parts)
         {
             foreach (string part in parts) definition.modeParts[part] = mode;
@@ -113,14 +107,6 @@ namespace JinxMod.Modules.LeagueSkins
                     { "Weapon", "jinx_skin51_weapon_tx_cm.tex" }
                 }),
 
-            // Different rig (180-degree spine, shifted joints, 134 extra joints): retargeted.
-            // One combined gun hangs off Weapon_Root (child of R_Hand): minigun at the front (+Z), shark-head rocket
-            // launcher at the back (-Z), with a zapper attachment (Zapper_Mesh) in the shark's mouth.
-            //   Minigun mode: follow Jinx's Minigun bone (use "R_Hand" to lock it to her hand instead).
-            //   Rocket mode:  flip it onto Fishbones (Rocket_Launcher; mouth up +Y on her back, handle toward +Z),
-            //                 rocket grip on Fishbones' handle.
-            //   Zap:          put it on the Pistol bone (muzzle along Pistol -> Cstm_Buffbone_Pistol, handle toward
-            //                 ~+Z at rest), rocket grip on the pistol pivot, and show the zapper.
             ModePart(
             Mode(
             Mode(Retarget(Skin(60, "Arcane Fractured", "jinx_skin60_shimmerbody_tx_cm.tex",

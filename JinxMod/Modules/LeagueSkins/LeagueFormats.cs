@@ -264,8 +264,6 @@ namespace JinxMod.Modules.LeagueSkins
             return texture;
         }
 
-        // Many League body textures are DXT5 but fully opaque; only treat them as cutout when
-        // a meaningful share of blocks actually contain transparent texels.
         private static bool Dxt5HasAlpha(byte[] data)
         {
             int blocks = 0;

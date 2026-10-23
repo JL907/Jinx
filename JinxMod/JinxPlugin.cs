@@ -33,7 +33,7 @@ namespace JinxMod
     {
         public const string MODUID = "com.Lemonlust.JinxMod";
         public const string MODNAME = "JinxMod";
-        public const string MODVERSION = "1.4.4";
+        public const string MODVERSION = "1.5.0";
 
         public const string DEVELOPER_PREFIX = "Lemonlust";
 

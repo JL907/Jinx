@@ -19,19 +19,12 @@ namespace JinxMod.Modules.LeagueSkins
         internal string defaultTexture;
         internal Dictionary<string, string> partTextures = new Dictionary<string, string>();
         internal string[] hiddenParts = new string[0];
-        // Retarget: give the skin its own skeleton that copies Jinx's animated bone rotations each frame
-        // (keeps the skin's own joint positions/bone lengths). Use for skins whose rig differs from base Jinx.
         internal bool retarget;
-        // Skin joint -> Unity bone for joints the base rig lacks (e.g. a weapon root). These follow that bone's position too.
         internal Dictionary<string, string> jointMap = new Dictionary<string, string>();
-        // Alternate bindings used in a weapon mode (LeagueRigDriver.ModeRocket / ModeZap).
         internal List<LeagueModeBinding> modeBindings = new List<LeagueModeBinding>();
-        // Parts that are only visible in one weapon mode (e.g. a zapper attachment during Zap).
         internal Dictionary<string, int> modeParts = new Dictionary<string, int>();
     }
 
-    // In `mode`, drive `joint` from Unity bone `bone`, posed so that skin joint `skinAnchor` sits on base joint
-    // `baseAnchor` (League rest poses) with the skin's axes rotated by `rotation` (League space).
     internal class LeagueModeBinding
     {
         internal int mode;
@@ -135,8 +128,6 @@ namespace JinxMod.Modules.LeagueSkins
                 activations.Add(new SkinDef.GameObjectActivation { gameObject = bodyRenderer.gameObject, shouldActivate = true });
                 foreach (GameObject part in allParts) activations.Add(new SkinDef.GameObjectActivation { gameObject = part, shouldActivate = false });
                 skin.gameObjectActivations = activations.ToArray();
-                // Jinx's Skins.CreateSkinDef bakes a SkinDefParams with no activations; drop it so the legacy
-                // fields above (same renderer infos plus these activations) are used, like the League skins.
                 skin.skinDefParams = null;
             }
 
@@ -248,8 +239,6 @@ namespace JinxMod.Modules.LeagueSkins
                     anchor = skeleton.parents[anchor];
                 }
 
-                // Extra joints under a weapon bone are rigid props (gun parts, cases, scopes): keep them on that
-                // bone. Only soft extras (hair, cloth, necklaces) borrow weights from the nearest base vertex.
                 jointIsExtra[j] = anchor != j && !(anchor >= 0 && IsRigidAnchor(skeleton.names[anchor]));
                 if (anchor >= 0)
                 {
@@ -336,8 +325,6 @@ namespace JinxMod.Modules.LeagueSkins
 
             HashSet<string> hidden = new HashSet<string>(definition.hiddenParts, StringComparer.OrdinalIgnoreCase);
 
-            // Mode-only parts get their own toggle joint (child of the part's main joint) that the driver scales to zero
-            // outside that mode. Their vertices are bound rigidly to it.
             List<int[]> toggles = new List<int[]>();
             Dictionary<string, int> toggleForPart = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
             foreach (LeagueMeshPart part in mesh.parts)
@@ -364,12 +351,9 @@ namespace JinxMod.Modules.LeagueSkins
                 }
             }
 
-            // Bindposes come from the rig at rest, relative to the body renderer (shared by the display copy,
-            // which has the same model-root -> renderer relationship).
             Matrix4x4[] jointBindposes = new Matrix4x4[joints.Length];
             for (int j = 0; j < joints.Length; j++)
             {
-                // Toggle joints rest at scale zero; bind them as if visible (scale one).
                 Vector3 scale = joints[j].localScale;
                 joints[j].localScale = Vector3.one;
                 jointBindposes[j] = joints[j].worldToLocalMatrix * rendererTransform.localToWorldMatrix;
@@ -422,8 +406,6 @@ namespace JinxMod.Modules.LeagueSkins
             return built;
         }
 
-        // Builds the skin's own League skeleton under the model root (League space = model space * LeagueUnitScale),
-        // and a driver that copies the matching Unity bones' animated rotations onto it every frame.
         private static int MainJoint(LeagueMeshPart part, LeagueMesh mesh, LeagueSkeleton skeleton)
         {
             Dictionary<int, float> totals = new Dictionary<int, float>();
@@ -454,7 +436,6 @@ namespace JinxMod.Modules.LeagueSkins
             Transform[] joints = new Transform[count + toggles.Count];
             for (int j = 0; j < count; j++)
             {
-                // Prefixed so name lookups for Jinx's real bones never hit the copy.
                 joints[j] = new GameObject("lr_" + skeleton.names[j]).transform;
                 joints[j].gameObject.layer = rigObject.layer;
             }
@@ -487,7 +468,6 @@ namespace JinxMod.Modules.LeagueSkins
                 toggleModes[t] = toggles[t][1];
             }
 
-            // Driven joints, parent-first so children see their parent's new pose.
             List<int> order = Enumerable.Range(0, count).OrderBy(j => Depth(skeleton, j)).ToList();
             bool[] mapped = new bool[count];
             List<Transform> drivenJoints = new List<Transform>();
@@ -510,11 +490,9 @@ namespace JinxMod.Modules.LeagueSkins
                 drivenBones.Add(bone);
                 rotationOffsets.Add(Quaternion.Inverse(bone.rotation) * joints[j].rotation);
                 positionOffsets.Add(bone.InverseTransformPoint(joints[j].position));
-                // Joints under a driven parent keep the skin's own bone length; others are pinned to their bone.
                 pinned.Add(explicitMap || parent < 0 || parent >= count || !mapped[parent]);
             }
 
-            // Rocket-mode alternates (only for joints that are already driven).
             List<int> altJoint = new List<int>();
             List<int> altMode = new List<int>();
             List<Transform> altBones = new List<Transform>();
@@ -528,7 +506,6 @@ namespace JinxMod.Modules.LeagueSkins
                 int driven = drivenJoints.IndexOf(joints[j]);
                 if (driven < 0) continue;
 
-                // League-space rigid move: rotate about the skin anchor, then put the anchor on the base anchor.
                 Vector3 skinAnchorPos = skeleton.rest[anchor].GetColumn(3);
                 Vector3 baseAnchorPos = baseSkeleton.rest[baseAnchor].GetColumn(3);
                 Matrix4x4 move = Matrix4x4.Translate(baseAnchorPos) * Matrix4x4.Rotate(binding.rotation) * Matrix4x4.Translate(-skinAnchorPos);
@@ -875,8 +852,6 @@ namespace JinxMod.Modules.LeagueSkins
             Texture2D texture = LeagueTextures.Load(bytes, file, out bool hasAlpha);
             if (!texture) Debug.LogError("[Jinx LeagueSkins] Could not load texture " + definition.folder + "/" + file);
 
-            // Jinx's own material is a Poiyomi toon material (dontHotpoo), so opaque League textures reuse it to match her look.
-            // Textures with real alpha (e.g. PROJECT hair cards) use HGStandard, whose cutout is reliable at runtime.
             bool useTemplate = template && !hasAlpha;
             Material material = useTemplate ? new Material(template) : new Material(Assets.hotpoo);
             material.name = "LeagueSkin_" + definition.folder + "_" + System.IO.Path.GetFileNameWithoutExtension(file);

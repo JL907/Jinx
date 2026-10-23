@@ -106,7 +106,7 @@ namespace JinxMod.Modules.LeagueSkins
 
         private int FindAlt(int joint, int mode)
         {
-            if (mode == ModeDefault || altJoint == null) return -1;
+            if (altJoint == null) return -1;
             for (int a = 0; a < altJoint.Length; a++)
             {
                 if (altJoint[a] == joint && altMode[a] == mode && altBones[a]) return a;

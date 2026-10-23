@@ -6,9 +6,8 @@ namespace JinxMod.Modules.Characters {
         public virtual bool printUnused { get; }
 
         public void SetItemDIsplays(ItemDisplayRuleSet itemDisplayRuleSet) {
-
             List<ItemDisplayRuleSet.KeyAssetRuleGroup> itemDisplayRules = new List<ItemDisplayRuleSet.KeyAssetRuleGroup>();
-            
+
             if(printUnused)
                 ItemDisplays.recordUnused();
 

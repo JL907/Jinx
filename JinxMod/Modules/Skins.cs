@@ -1,5 +1,4 @@
-﻿using R2API;
-using RoR2;
+﻿using RoR2;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,28 +99,8 @@ namespace JinxMod.Modules
             internal string Name;
         }
 
-        private static CharacterModel.RendererInfo[] getRendererMaterials(CharacterModel.RendererInfo[] defaultRenderers, params Material[] materials)
-        {
-            CharacterModel.RendererInfo[] newRendererInfos = new CharacterModel.RendererInfo[defaultRenderers.Length];
-            defaultRenderers.CopyTo(newRendererInfos, 0);
-
-            for (int i = 0; i < newRendererInfos.Length; i++)
-            {
-                try
-                {
-                    newRendererInfos[i].defaultMaterial = materials[i];
-                }
-                catch
-                {
-                    Log.Error("error adding skin rendererinfo material. make sure you're not passing in too many");
-                }
-            }
-
-            return newRendererInfos;
-        }
         internal static SkinDef.MeshReplacement[] getMeshReplacements(CharacterModel.RendererInfo[] rendererinfos, params string[] meshes)
         {
-
             List<SkinDef.MeshReplacement> meshReplacements = new List<SkinDef.MeshReplacement>();
 
             for (int i = 0; i < rendererinfos.Length; i++)

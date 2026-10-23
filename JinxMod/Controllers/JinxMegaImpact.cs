@@ -1,11 +1,8 @@
 ﻿using RoR2;
 using RoR2.Projectile;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace JinxMod.Controllers
 {
@@ -25,8 +22,7 @@ namespace JinxMod.Controllers
         }
         public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
         {
-            List<HurtBox> HurtBoxes = new List<HurtBox>();
-            HurtBoxes = new SphereSearch
+            List<HurtBox> HurtBoxes = new SphereSearch
             {
                 radius = 16f,
                 mask = LayerIndex.entityPrecise.mask,
@@ -38,12 +34,12 @@ namespace JinxMod.Controllers
             {
                 if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.alive && !hitHealthComponent.Contains(hurtBox.healthComponent))
                 {
-                    float damageDistance = this.projectileDamage.damage * (Mathf.Min(1, age * 0.20f));
+                    float damageDistance = this.projectileDamage.damage * Mathf.Min(1, age * 0.20f);
                     DamageInfo damageInfo = new DamageInfo();
                     damageInfo.damage = damageDistance + (hurtBox.healthComponent.missingCombinedHealth * bonusDamageCoefficient);
                     damageInfo.crit = false;
                     damageInfo.damageColorIndex = DamageColorIndex.Item;
-                    damageInfo.attacker = (this.projectileController.owner ? this.projectileController.owner.gameObject : null);
+                    damageInfo.attacker = this.projectileController.owner ? this.projectileController.owner.gameObject : null;
                     damageInfo.inflictor = base.gameObject;
                     damageInfo.position = hurtBox.healthComponent.gameObject.transform.position;
                     damageInfo.force = this.projectileDamage.force * base.transform.forward;

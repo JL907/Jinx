@@ -27,16 +27,15 @@ namespace JinxMod.SkillStates
             base.StartAimMode(duration, false);
             this.animator = base.GetModelAnimator();
 
-            if (this.animator.GetBool("isMoving") || (!(this.animator.GetBool("isGrounded"))))
+            if (this.animator.GetBool("isMoving") || !this.animator.GetBool("isGrounded"))
             {
                 base.PlayAnimation("Gesture, Override", "zap");
             }
-            else if ((!(this.animator.GetBool("isMoving"))) && this.animator.GetBool("isGrounded"))
+            else if (!this.animator.GetBool("isMoving") && this.animator.GetBool("isGrounded"))
             {
                 base.PlayAnimation("FullBody, Override", "zap");
             }
             Util.PlaySound("Play_JinxZapSFX", base.gameObject);
-
         }
 
         public override void OnExit()
@@ -86,7 +85,6 @@ namespace JinxMod.SkillStates
                 };
                 ProjectileManager.instance.FireProjectile(fireProjectileInfo);
             }
-            
         }
 
         public override void FixedUpdate()

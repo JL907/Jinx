@@ -52,7 +52,7 @@ namespace JinxMod.Modules.Survivors
             sortPosition = 1f,
         };
 
-        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
+        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
                 {
@@ -65,10 +65,7 @@ namespace JinxMod.Modules.Survivors
 
         public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
 
-
         public override ConfigEntry<bool> characterEnabledConfig => null;
-
-        private static UnlockableDef masterySkinUnlockableDef;
 
         public override void InitializeCharacter()
         {
@@ -87,14 +84,10 @@ namespace JinxMod.Modules.Survivors
 
         public override void InitializeHitboxes()
         {
-            ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
-            GameObject model = childLocator.gameObject;
-
         }
 
         public override void InitializeSkills()
         {
-
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = JinxPlugin.DEVELOPER_PREFIX;
 

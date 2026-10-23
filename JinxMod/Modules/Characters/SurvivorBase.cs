@@ -1,6 +1,5 @@
 ﻿using BepInEx.Configuration;
 using RoR2;
-using System;
 using JinxMod.Modules.Characters;
 using UnityEngine;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ namespace JinxMod.Modules.Survivors
     internal abstract class SurvivorBase : CharacterBase
     {
         public abstract string survivorTokenPrefix { get; }
-        
+
         public abstract UnlockableDef characterUnlockableDef { get; }
 
         public virtual ConfigEntry<bool> characterEnabledConfig { get; }
@@ -20,7 +19,6 @@ namespace JinxMod.Modules.Survivors
 
         public override void InitializeCharacter()
         {
-
             if (characterEnabledConfig != null && !characterEnabledConfig.Value)
                 return;
 

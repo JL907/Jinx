@@ -109,6 +109,7 @@ namespace JinxMod.Modules.LeagueSkins
 
             ModePart(
             Mode(
+            Mode(
             Mode(Retarget(Skin(60, "Arcane Fractured", "jinx_skin60_shimmerbody_tx_cm.tex",
                 new Dictionary<string, string>
                 {
@@ -117,6 +118,8 @@ namespace JinxMod.Modules.LeagueSkins
                 },
                 "Torch", "Helmet", "SlotMachine", "PowderBody", "Flag", "Hood", "Hood_Hair", "Body", "Hair"),
                 "Weapon_Root", "Minigun"),
+                LeagueRigDriver.ModeDefault, "Weapon_Root", "Minigun", "Minigun_Grip", "Minigun_Handle_Back",
+                UnityEngine.Vector3.forward, UnityEngine.Vector3.up),
                 LeagueRigDriver.ModeRocket, "Weapon_Root", "Rocket_Launcher", "Rocketlauncher_Grip", "Rocket_Launcher_Handle",
                 new UnityEngine.Vector3(0f, -1f, 0f), new UnityEngine.Vector3(0f, 0f, -1f)),
                 LeagueRigDriver.ModeZap, "Weapon_Root", "Pistol", "Rocketlauncher_Grip", "Pistol",

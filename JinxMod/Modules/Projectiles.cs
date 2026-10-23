@@ -127,7 +127,6 @@ namespace JinxMod.Modules
             megaRocketPrefab.AddComponent<ProjectileImpactEventCaller>();
             RocketJumpController rocketJumpController = megaRocketPrefab.AddComponent<RocketJumpController>();
             rocketJumpController.explosionForce = Modules.Config.rocketJumpMegaRocketForce.Value;
-
         }
 
         private static void CreateZap()

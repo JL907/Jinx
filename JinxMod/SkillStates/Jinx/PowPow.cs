@@ -2,11 +2,9 @@
 using JinxMod.Controller;
 using RoR2;
 using RoR2.Audio;
-using System;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using UnityEngine;
-using UnityEngine.Networking;
 using static RoR2.BulletAttack;
 
 namespace JinxMod.SkillStates
@@ -42,11 +40,11 @@ namespace JinxMod.SkillStates
             this.muzzleString = "PowPowMuzzle";
             this.animator = base.GetModelAnimator();
 
-            if (this.animator.GetBool("isMoving") || (!(this.animator.GetBool("isGrounded"))))
+            if (this.animator.GetBool("isMoving") || !this.animator.GetBool("isGrounded"))
             {
                 base.PlayAnimation("Gesture, Override", "powpowattack");
             }
-            else if ((!(this.animator.GetBool("isMoving"))) && this.animator.GetBool("isGrounded"))
+            else if (!this.animator.GetBool("isMoving") && this.animator.GetBool("isGrounded"))
             {
                 base.PlayAnimation("FullBody, Override", "powpowattack");
             }

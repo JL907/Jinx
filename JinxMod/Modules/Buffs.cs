@@ -1,12 +1,10 @@
 ﻿using RoR2;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace JinxMod.Modules
 {
     public static class Buffs
     {
-
         internal static BuffDef revdUp;
         internal static BuffDef getExcitedSpeedBuff;
 
@@ -14,7 +12,6 @@ namespace JinxMod.Modules
         {
             revdUp = AddNewBuff("JinxRevdUp", Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Rev_d_up"), Color.white, true, false);
             getExcitedSpeedBuff = AddNewBuff("GetExcitedMovementSpeedBuff", Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Jinx_Passive"), Color.white, true, false);
-
         }
 
         internal static BuffDef AddNewBuff(string buffName, Sprite buffIcon, Color buffColor, bool canStack, bool isDebuff)

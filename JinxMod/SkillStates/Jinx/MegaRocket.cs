@@ -1,7 +1,6 @@
 ﻿using EntityStates;
 using EntityStates.Commando.CommandoWeapon;
 using JinxMod.Controller;
-using R2API;
 using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
@@ -18,7 +17,6 @@ namespace JinxMod.SkillStates
         private float duration;
         private float fireTime;
         private bool hasFired;
-        private Animator animator;
         private RocketController rocketController;
 
         public override void OnEnter()
@@ -27,7 +25,6 @@ namespace JinxMod.SkillStates
             this.duration = MegaRocket.baseDuration;
             this.fireTime = 0.53f;
             base.StartAimMode(duration, false);
-            this.animator = base.GetModelAnimator();
             this.rocketController = base.GetComponent<RocketController>();
             if (this.rocketController)
             {
@@ -85,11 +82,11 @@ namespace JinxMod.SkillStates
             else
             {
                 Inventory inventory = base.characterBody.inventory;
-                num = ((inventory != null) ? new int?(inventory.GetItemCount(DLC1Content.Items.MoreMissile)) : null);
+                num = inventory != null ? new int?(inventory.GetItemCount(DLC1Content.Items.MoreMissile)) : null;
             }
 
             int num2 = num ?? 0;
-            float num3 = Mathf.Max(1f, 1f + 0.5f * (float)(num2 - 1));
+            float num3 = Mathf.Max(1f, 1f + 0.5f * (num2 - 1));
 
             FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
             {
@@ -99,7 +96,7 @@ namespace JinxMod.SkillStates
                 procChainMask = default(ProcChainMask),
                 target = null,
                 owner = this.characterBody.gameObject,
-                damage = (this.characterBody.damage * MegaRocket.damageCoefficient) * num3,
+                damage = this.characterBody.damage * MegaRocket.damageCoefficient * num3,
                 crit = isCrit,
                 force = 1200f,
                 damageColorIndex = DamageColorIndex.Default

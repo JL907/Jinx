@@ -2,14 +2,10 @@
 using RoR2;
 using RoR2.Skills;
 using System;
-using System.Collections.Generic;
-using JinxMod;
 using UnityEngine;
-using JinxMod.Controller;
 
 namespace JinxMod.Modules
 {
-
     internal static class Skills
     {
         #region genericskills
@@ -141,7 +137,6 @@ namespace JinxMod.Modules
             skillDef.keywordTokens = skillDefInfo.keywordTokens;
 
             JinxMod.Modules.Content.AddSkillDef(skillDef);
-
 
             return skillDef;
         }

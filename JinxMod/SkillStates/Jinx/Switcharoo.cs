@@ -2,9 +2,6 @@
 using EntityStates;
 using JinxMod.Controller;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace JinxMod.SkillStates
@@ -30,7 +27,6 @@ namespace JinxMod.SkillStates
                 animator.runtimeAnimatorController = this.animatorOverrideController;
                 Util.PlaySound("Play_JinxSwitch2FishBones", base.gameObject);
                 base.skillLocator.primary.SetSkillOverride(base.skillLocator.primary, JinxMod.Modules.Survivors.MyCharacter.fishBonesSkillDef, GenericSkill.SkillOverridePriority.Replacement);
-
             }
             else
             {

@@ -23,6 +23,7 @@ A manic and impulsive criminal from Zaun, Jinx lives to wreak havoc without care
 * Added 15 League of Legends skins: Crime City, Firecracker, Zombie Slayer, Star Guardian, Ambitious Elf, Odyssey, PROJECT, Heartseeker, Arcane Enemy, Battle Cat, Prestige Battle Cat, Cafe Cuties, Arcane Fractured, T1 and Ocean Song
 * Pow-Pow is now Agile
 * Jinx's upper body and weapon now face the aim direction when attacking while moving
+* Code cleanup
 
 ## Discord
 <a href="https://discord.gg/aYuS9Wsxxx" target="_blank">

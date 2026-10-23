@@ -2,6 +2,7 @@
 * Added 15 League of Legends skins: Crime City, Firecracker, Zombie Slayer, Star Guardian, Ambitious Elf, Odyssey, PROJECT, Heartseeker, Arcane Enemy, Battle Cat, Prestige Battle Cat, Cafe Cuties, Arcane Fractured, T1 and Ocean Song
 * Pow-Pow is now Agile
 * Jinx's upper body and weapon now face the aim direction when attacking while moving
+* Code cleanup
 
 `1.4.4`
 * Added Lemonlust Runes as a dependency
